@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <title>Task-4</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            background-color: rgb(239,240,244);
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            background-color: rgb(239,240,244);
+        }
+        .header{
+            width: 100%;
+            height: 90px;
+            margin: 0;
+            background-color: rgb(95,192,205);
+
+            text-align: center;
+
+            position: fixed;
+        }
+        .content{
+            width: 100%;
+            margin: 0;
+        }
+        span.top{
+            font-family: 黑体;
+            color: white;
+            font-size: 30px;
+            line-height: 90px;
+
+            float: left;
+        }
+        span.title{
+            font-family: 黑体;
+            color: white;
+            font-size: 36px;
+            line-height: 90px;
+
+            margin: 0;
+        }
+        .close{
+            display: inline-block;
+            height: inherit;
+
+            float: left;
+            position: fixed;
+            left: 3%;
+        }
+        .register{
+            display: inline-block;
+            height: inherit;
+
+            float: right;
+            position: fixed;
+            right: 3%;
+        }
+        input{
+            height: 100%;
+            width: 100%;
+
+            text-align: left;
+            font-family: 黑体;
+        }
+        .phone_number{
+            width: 85%;
+            height: 40px;
+            border: 0;
+            padding-left: 2%;
+            margin: 15px 0;
+            box-sizing: border-box;
+            border-left: 1px solid lightgrey;
+
+            font-size: 30px;
+
+            position: absolute;
+            left: 12%;
+            top: 105px;
+        }
+        .pw{
+            width: 85%;
+            height: 40px;
+            border: 0;
+            padding-left: 2%;
+            margin: 15px 0;
+            box-sizing: border-box;
+            border-left: 1px solid lightgrey;
+
+            font-size: 30px;
+
+            position:absolute;
+            left: 12%;
+            top: 190px;
+        }
+        .login{
+            width: 100%;
+            height: 70px;
+            margin: 0;
+            border: 0;
+            background-color: rgb(95,192,205);
+
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            letter-spacing: 20px;
+
+            position: absolute;
+            top: 320px;
+        }
+        .pw_forget{
+            width: 5em;
+            height: 40px;
+            border: 0;
+            margin: 0;
+            background-color: rgb(239,240,244);
+
+            font-family: 黑体;
+            color: rgb(95,192,205);
+            font-size: 30px;
+
+            position: absolute;
+            top: 400px;
+            right: 5%;
+        }
+        .img1{
+            width: 100%;
+            height: 70px;
+            margin: 0;
+            background: white;
+
+            position: absolute;
+            top: 105px;
+        }
+        .img2{
+            width: 100%;
+            height: 70px;
+            margin: 0;
+            background: white;
+
+            position: absolute;
+            top: 190px;
+        }
+        img.ex1{
+            position: absolute;
+            top: 15px;
+            left: 5%;
+        }
+        img.ex2{
+            position: absolute;
+            top: 15px;
+            left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="close">
+                <span class="top">关闭</span>
+            </div>
+            <div class="register">
+                <span class="top">注册</span>
+            </div>
+            <span class="title">登陆</span>
+        </div>
+        <div class="content">
+            <div class="img1">
+                <img class="ex1" src="img_task4/login_01.png" />
+            </div>
+            <div class="img2">
+                <img class="ex2" src="img_task4/login_02.png" />
+            </div>
+            <input class="phone_number" type="text" placeholder="请输入手机号" name="phonenumber" />
+            <input class="pw" type="text" placeholder="请输入密码" name="password" />
+        </div>
+        <input class="login" type="submit" value="登陆" />
+        <input class="pw_forget" type="button" value="忘记密码？" />
+    </div>
+</body>
+</html>
