@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Task-5</title>
+    <style type="text/css">
+        body{
+            width: 100%;
+            min-width: 320px;
+            margin: 0;
+
+            font: normal 100% Helvetica, Arial, sans-serif;
+        }
+        @media screen and (max-width: 480px) {
+            html {
+                font-size: 50%;
+            }
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+        .header{
+            width: 100%;
+            height: 12.5vw;
+            margin: 0;
+            background-color: rgb(95,192,205);
+
+            text-align: center;
+            line-height: 12.5vw;
+
+            position: absolute;
+            top: 0;
+        }
+        .main{
+            width: 100%;
+            height: 42vw;
+            margin: 0;
+
+            background-image: url(img_task5/profile_1.png);
+            background-size: cover;
+
+            position: relative;
+            top: 12.5vw;
+        }
+        .content{
+            width: 100%;
+            margin:0;
+
+            position: absolute;
+            top: 54.5vw;
+        }
+        .footer{
+            width: 100%;
+            height: 14vw;
+            margin: 0;
+
+            position: absolute;
+            top: 140vw;
+        }
+        .head{
+            width: 25%;
+            height: 25vw;
+            margin: 0;
+            border-radius: 100%;
+
+            background-color: white;
+            background-image: url(img_task5/profile_2.png);
+            background-size: 70%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+
+            position: absolute;
+            float: left;
+            top: 20%;
+            left: 4%;
+        }
+        p{
+            font-family: 微软雅黑;
+            color: white;
+
+            margin: 0;
+        }
+        span{
+            font-family: 微软雅黑;
+            color: white;
+
+            margin: 0;
+        }
+
+        p.tilte{
+            font-size: 1.5rem;
+        }
+        span.name{
+            font-size: 1.5rem;
+        }
+        p.age{
+            font-size: 1.3rem;
+            position: absolute;
+            left: 35%;
+            top: 30%;
+        }
+        p.addr{
+            font-size: 1rem;
+            position: absolute;
+            left: 35%;
+            top: 50%;
+        }
+        p.skilltop{
+            color: black;
+            font-size: 1.4rem;
+            line-height: 12vw;
+
+            width: 90%;
+            border-bottom: 1px solid lightgrey;
+            padding-left: 5%;
+        }
+        span.skilltop{
+            color: black;
+            font-size: 1.4rem;
+            padding-left: 5%;
+            border-left: 2px solid rgb(95,192,205);
+        }
+        p.skill{
+            color: black;
+            font-size: 1.4rem;
+            line-height: 12vw;
+
+            width: 90%;
+            border-bottom: 1px solid lightgrey;
+            padding-left: 5%;
+
+            position: relative;
+            left: 5%;
+        }
+        p.skill1{
+            color: red;
+            font-size: 1.4rem;
+            line-height: 12vw;
+
+            width: 90%;
+            border-bottom: 1px solid lightgrey;
+            padding-left: 5%;
+
+            position: relative;
+            left: 5%;
+        }
+        p.skill2{
+            color: black;
+            font-size: 1.4rem;
+            line-height: 12vw;
+
+            width: 90%;
+            height: 12vw;
+            border-bottom: 1px solid lightgrey;
+            padding-left: 5%;
+
+            position: relative;
+            left: 5%;
+        }
+        span.skill{
+            color: black;
+            font-size: 1.4rem;
+
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: 1px solid lightgray;
+        }
+        span.item{
+            color: grey;
+            font-size: 1.4rem;
+            padding-right: 5%;
+            margin-right: 3%;
+            border-right: 1px solid lightgrey;
+        }
+        span.self{
+            display: inline-block;
+            width: 65%;
+
+            color: black;
+            font-size: 1rem;
+            line-height: 4vw;
+
+            position: relative;
+            top: 2vw;
+        }
+        img.back{
+            width: 4%;
+            position: absolute;
+            left: 5%;
+            top: 3vw;
+        }
+        img.icon1{
+            width: 10%;
+        }
+        img.icon2{
+            width: 4%;
+        }
+        input.message{
+            width: 42%;
+            height: 10vw;
+
+            color: rgb(95,192,205);
+            font-family: 微软雅黑;
+            font-size: 1.4rem;
+
+            border: 2px solid rgb(95,192,205);
+            border-radius: 0.6rem;
+            background-color: white;
+
+            position: absolute;
+            left:5%;
+        }
+        input.phone{
+            width: 42%;
+            height: 10vw;
+
+            color: white;
+            font-family: 微软雅黑;
+            font-size: 1.4rem;
+
+            border: 2px solid rgb(95,192,205);
+            border-radius: 0.6rem;
+            background-color: rgb(95,192,205);
+
+            position: absolute;
+            left: 53%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img  class="back" src="img_task5/profile_5.png" />
+            <p class="tilte">个人主页</p>
+        </div>
+        <div class="main">
+            <div class="head"></div>
+            <p class="age">
+                <span class="name">高素雅</span>
+                51岁</p>
+            <p class="addr">
+                <img class="icon1" src="img_task5/profile_3.png" />
+                北京.通州.果园
+            </p>
+
+        </div>
+        <div class="content">
+            <p class="skilltop">
+                <span class="skilltop">专业技能</span>
+            </p>
+            <p class="skill">
+                <img class="icon2" src="img_task5/profile_4.png" />
+                住家
+                <span class="skill">
+                    <img class="icon2" src="img_task5/profile_4.png" />
+                    不含餐
+                </span>
+            </p>
+            <p class="skill">
+                <span class="item">从业年限</span>
+                0~3年
+            </p>
+            <p class="skill">
+                <span class="item">工作时间</span>
+                全天
+            </p>
+            <p class="skill1">
+                <span class="item">服务价格</span>
+                25元/小时
+            </p>
+            <p class="skill2">
+                <span class="item">自我介绍</span>
+                <span class="self">可以洗衣、做饭、照顾老人。在护工方面有5年的经验，经验丰富</span>
+            </p>
+        </div>
+        <div class="footer">
+            <input type="button" class="message" value="留言" />
+            <input type="button" class="phone" value="电话联系" />
+        </div>
+    </div>
+</body>
+</html>
