@@ -97,6 +97,11 @@
             line-height: 3rem;
             border-bottom: 1px solid lightgray;
             vertical-align: middle;
+            position: relative;
+        }
+        .main_bottom{
+            width: 100%;
+            height: 14vw;
         }
         .footer{
             width: 100%;
@@ -147,6 +152,11 @@
             -webkit-animation: animation 2s;
             -webkit-animation-iteration-count: 1;
             left: 50%;
+            text-align: center;
+        }
+        p.slider{
+            line-height: 10.5vw;
+            color: rgb(95,192,205);
         }
         @-webkit-keyframes animation{
             0% {left: 30%;}
@@ -184,11 +194,11 @@
             float: right;
             right: 10%;
         }
-        span.pay:after{
-            content: url(img_task5/jump.jpg);
+        img.jump{
+            height: 1.2rem;
             position: relative;
-            top: 8px;
-            left: 20%
+            top: 0.2rem;
+            left: 20%;
         }
         p.addr{
             padding-left: 5%;
@@ -251,7 +261,9 @@
 </head>
 <body>
     <div class="header">
-        <div class="choose"></div>
+        <div class="choose">
+            <p class="slider">找护工</p>
+        </div>
         <input class="select1" type="button" value="找雇主" />
         <input class="select2" type="button" value="找护工" />
         <img src="img_task5/position.jpg" class="position" />
@@ -273,7 +285,11 @@
             <div class="content">
                 <p class="servicedate">服务日期</p>
                 <span class="date">2.15-7-5 至 2015-7-12</span>
-                <span class="pay">25元/小时</span><br>
+                <span class="pay">25元/小时
+                    <a href="task5-1.html">
+                        <img class="jump" src="img_task5/jump.jpg"/>
+                    </a>
+                </span>
                 <p class="addr">北京.通州.果园</p>
             </div>
         </div>
@@ -281,7 +297,11 @@
             <div class="content">
                 <p class="servicedate">服务日期</p>
                 <span class="date">2.15-7-5 至 2015-7-12</span>
-                <span class="pay">35元/小时</span><br>
+                <span class="pay">35元/小时
+                    <a href="task5-1.html">
+                        <img class="jump" src="img_task5/jump.jpg"/>
+                    </a>
+                </span>
                 <p class="addr">北京.通州.果园</p>
             </div>
         </div>
@@ -289,7 +309,11 @@
             <div class="content">
                 <p class="servicedate">服务日期</p>
                 <span class="date">2.15-7-5 至 2015-7-12</span>
-                <span class="pay">45元/小时</span><br>
+                <span class="pay">45元/小时
+                    <a href="task5-1.html">
+                        <img class="jump" src="img_task5/jump.jpg"/>
+                    </a>
+                </span>
                 <p class="addr">北京.通州.果园</p>
             </div>
         </div>
@@ -297,7 +321,11 @@
             <div class="content">
                 <p class="servicedate">服务日期</p>
                 <span class="date">2.15-7-5 至 2015-7-12</span>
-                <span class="pay">45元/小时</span><br>
+                <span class="pay">45元/小时
+                    <a href="task5-1.html">
+                        <img class="jump" src="img_task5/jump.jpg"/>
+                    </a>
+                </span>
                 <p class="addr">北京.通州.果园</p>
             </div>
         </div>
@@ -305,10 +333,15 @@
             <div class="content">
                 <p class="servicedate">服务日期</p>
                 <span class="date">2.15-7-5 至 2015-7-12</span>
-                <span class="pay">45元/小时</span><br>
+                <span class="pay">45元/小时
+                    <a href="task5-1.html">
+                        <img class="jump" src="img_task5/jump.jpg"/>
+                    </a>
+                </span>
                 <p class="addr">北京.通州.果园</p>
             </div>
         </div>
+        <div class="main_bottom"></div>
     </div>
     <div class="footer">
         <div class="circle"></div>
