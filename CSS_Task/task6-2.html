@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Task-result</title>
+    <style type="text/css">
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            width: 100%;
+            margin: 0;
+            background-color: rgb(240,240,240);
+        }
+        @media only screen and (min-width: 480px){
+            html{
+                font-size: 94%;
+            }
+        }
+        @media only screen and (min-width: 560px){
+            html {
+                font-size: 109%;
+            }
+        }
+        @media only screen and (min-width: 640px){
+            html {
+                font-size: 125%;
+            }
+        }
+        .header{
+            width: 100%;
+            height: 4.5rem;
+            background-color: rgb(41,189,224);
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid white;
+        }
+        .content{
+            width: 100%;
+            background: rgb(41,189,224);
+            text-align: center;
+            margin: 0;
+        }
+        .shell{
+            margin: 0 12%;
+            text-align: left;
+        }
+        .main{
+            position: relative;
+            top: -3rem;
+            text-align: left;
+            margin: 0 12% -2rem 12%;
+        }
+        .report{
+            width: 100%;
+            background-color: white;
+            text-align: left;
+            display: table;
+            position: relative;
+        }
+        .footer{
+            width: 100%;
+            height: 6.5rem;
+            background-color: rgba(41,189,224,0.5);
+            position: fixed;
+            bottom: 0;
+        }
+        .bottom{
+            width: 100%;
+            height: 3.5rem;
+            background-color: white;
+            border-top: 1px solid white;
+            position: relative;
+        }
+        img.home{
+            height: 2.2rem;
+            position: absolute;
+            top: 1.15rem;
+            left: 1rem;
+        }
+        img.caution{
+            height: 2.2rem;
+            position: absolute;
+            top: 1.15rem;
+            right: 1rem;
+        }
+        img.victory{
+            height: 10rem;
+            position: relative;
+            top: 1.2rem;
+        }
+        p{
+            font-family: 微软雅黑;
+            color: white;
+            letter-spacing: 0.1rem;
+            font-size: 1.3rem;
+            margin: 0;
+            line-height: 2rem;
+        }
+        p.title{
+            font-size: 1.7rem;
+            line-height: 4.5rem;
+            margin: 0;
+        }
+        p.day{
+            font-family: 微软雅黑;
+            font-size: 2rem;
+            line-height: 3.5rem;
+            color: rgb(41,189,224);
+            position: absolute;
+            left: 5%;
+        }
+        p.time{
+            font-family: 微软雅黑;
+            font-size: 1.4rem;
+            line-height: 3.5rem;
+            color: rgb(41,189,224);
+            position: absolute;
+            right: 5%;
+        }
+        h1{
+            font-family: 黑体;
+            font-size: 2.4rem;
+            color: white;
+        }
+        h1.win{
+            position:relative;
+            top: -4rem;
+        }
+        h2.good{
+            font-family: 黑体;
+            font-size: 1.6rem;
+            color: rgb(255,200,101);
+            position: relative;
+            top: -3.6rem;
+        }
+        ul{
+            font-family: 微软雅黑;
+            font-size: 1.5rem;
+            position: relative;
+            margin: 5%;
+        }
+        li{
+            font-family: 微软雅黑;
+            font-size: 1.4rem;
+            color: darkgrey;
+            list-style-type: none;
+        }
+        ul:after{
+            content: "0小时07分";
+            font-size: 1rem;
+            color: darkgrey;
+            font-family: 微软雅黑;
+            position: absolute;
+            top: 5%;
+            right: 8%;
+        }
+        input{
+            width: 40%;
+            height: 4.5rem;
+            margin: 1rem 0;
+            border: 0;
+            border-radius: 0.5rem;
+            font-family: 微软雅黑;
+            color: white;
+            font-size: 2rem;
+        }
+        input:hover{
+            opacity: 0.7;
+        }
+        input.again{
+            background-color: rgb(246,111,111);
+            position: absolute;
+            left: 5%;
+        }
+        input.upload{
+            background-color: rgb(251,180,53);
+            position: absolute;
+            right: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="task6-1.html">
+            <img class="home" src="img_task6/icon1.png" />
+        </a>
+        <a href="">
+            <img class="caution" src="img_task6/icon2.png" />
+        </a>
+        <p class="title">游戏结果</p>
+    </div>
+    <div class="content">
+        <img class="victory" src="img_task6/victory.png" />
+        <h1 class="win">卧底胜利</h1>
+        <div class="shell">
+            <h2 class="good">太棒了!你知道么？在捉鬼游戏中只有20%的卧底取得游戏最终的胜利哦！</h2>
+        </div>
+        <div class="main">
+            <p>本次游戏共计用时0小时25分钟</p>
+            <p>杀&nbsp&nbsp&nbsp手0人&nbsp&nbsp&nbsp警&nbsp&nbsp&nbsp察1人&nbsp&nbsp&nbsp平&nbsp&nbsp&nbsp民6人</p>
+            <p>狙击手0人&nbsp&nbsp&nbsp医&nbsp&nbsp&nbsp生1人</p>
+            <p>卧底词汇：爱新觉罗</p>
+            <p>水民词汇：努尔哈赤</p>
+        </div>
+    </div>
+    <div class="report">
+        <ul>第1天
+            <li>晚上：5号被杀手杀死，5号是水民</li>
+            <li>白天：8号被全民投票投死，8号是杀手</li>
+        </ul>
+        <ul>第2天
+            <li>晚上：5号被杀手杀死，5号是水民</li>
+            <li>白天：8号被全民投票投死，8号是杀手</li>
+        </ul>
+    </div>
+    <div class="bottom">
+        <p class="day">第2天</p>
+        <p class="time">0小时07分</p>
+    </div>
+    <div class="footer">
+        <input class="again" type="button" value="再来一局"/>
+        <input class="upload" type="button" value="上传并分享" />
+    </div>
+</body>
+</html>
