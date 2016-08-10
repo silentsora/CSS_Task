@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Task6-vote</title>
+    <style type="text/css">
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            width: 100%;
+            margin: 0;
+            background-color: rgb(41,189,224);
+        }
+        @media only screen and (min-width: 480px){
+            html{
+                font-size: 94%;
+            }
+        }
+        @media only screen and (min-width: 560px){
+            html {
+                font-size: 109%;
+            }
+        }
+        @media only screen and (min-width: 640px){
+            html {
+                font-size: 125%;
+            }
+        }
+        .header{
+            width: 100%;
+            height: 4.5rem;
+            margin: 0;
+            position: relative;
+            text-align: center;
+        }
+        .audio{
+            width: 100%;
+            height: 4.2rem;
+            background-color: rgba(255,255,255,0.67);
+            position: relative;
+        }
+        .content{
+            display: table;
+            width: 100%;
+            margin: 0;
+            margin-bottom: 9.5rem;
+            padding-top: 3rem;
+            position: relative;
+        }
+        .footer{
+            width: 100%;
+            height: 9.5rem;
+            border-top: 1px solid white;
+            background-color: rgb(41,189,224);
+            position: fixed;
+            bottom: 0;
+        }
+        .table_row{
+            display: table-row;
+        }
+        .table_cell{
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+        .profile{
+            width: 6.3rem;
+            height: 6.3rem;
+            /*margin: 2rem;*/
+            margin: 0;
+            background-color: rgb(245,201,123);
+            border: 4px solid white;
+            position: relative;
+        }
+        .number{
+            width:6.3rem;
+            height: 1.2rem;
+            background-color: rgb(131,176,154);
+            margin-top: 5.1rem;
+            position: relative;
+        }
+        p{
+            font-family: 微软雅黑;
+            margin: 0;
+        }
+        p.vote{
+            font-size: 1.2rem;
+            color: black;
+            line-height: 4.2rem;
+            position: absolute;
+            left: 5%;
+        }
+        p.notice{
+            width: 100%;
+            font-size: 1.1rem;
+            color: white;
+            position: absolute;
+            left: 15%;
+            top: 1rem;
+        }
+        p.player{
+            font-size: 1.4rem;
+            color: black;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 1.6rem;
+        }
+        p.numbers{
+            font-size: 1rem;
+            color: white;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        span.title{
+            font-family: 微软雅黑;
+            font-size: 1.7rem;
+            color: white;
+            line-height: 4.5rem;
+        }
+        input.kill{
+            width: 80%;
+            height: 4.4rem;
+            background-color: rgb(251,180,53);
+            font-family: 微软雅黑;
+            font-size: 2rem;
+            color: white;
+            margin: auto;
+            border: 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        input.player{
+            /*background-image: url(img_task6/player.png);*/
+            width: 3rem;
+            height: 3rem;
+            /*background-size: cover;*/
+            border: 0;
+            position: absolute;
+            top: 0.6rem;
+            right: 2%;
+        }
+        input.icon1{
+            width: 1.5rem;
+            height: 1.5rem;
+            background-image: url(img_task6/icons.png);
+            background-size: auto 100%;
+            position: absolute;
+            left: 20%;
+            bottom: -0.8rem;
+            border: 0;
+        }
+        input.icon2{
+            width: 1.5rem;
+            height: 1.5rem;
+            background-image: url(img_task6/icons.png);
+            background-size: auto 100%;
+            background-position-x: 33.3%;
+            position: absolute;
+            bottom: -0.8rem;
+            left: 36%;
+            border: 0;
+        }
+        input.icon3{
+            width: 1.5rem;
+            height: 1.5rem;
+            background-image: url(img_task6/icons.png);
+            background-size: auto 100%;
+            background-position-x: 66.6%;
+            position: absolute;
+            bottom: -0.8rem;
+            right: 36%;
+            border: 0;
+        }
+        input.icon4{
+            width: 1.5rem;
+            height: 1.5rem;
+            background-image: url(img_task6/icons.png);
+            background-size: auto 100%;
+            background-position-x: 100%;
+            position: absolute;
+            bottom: -0.8rem;
+            right: 20%;
+            border: 0;
+        }
+        img.menu{
+            height: 1.9rem;
+            margin: 1.3rem 0;
+            position: absolute;
+            left: 4%;
+        }
+        img.close{
+            height: 1.9rem;
+            margin: 1.3rem 0;
+            position: absolute;
+            right: 4%;
+        }
+        button.select{
+            margin: 15%;
+            padding: 0;
+            border: 0;
+        }
+        button:active{
+            opacity: 0.8;
+        }
+        input:hover{
+            opacity: 0.8;
+        }
+        .delta{
+            width: 0;
+            height: 0;
+            border: 0.4rem solid rgb(41,189,224);
+            border-top: 0.8rem solid rgba(255,255,255,0.67);
+            position: absolute;
+            top: 0;
+            left: 15%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="title">投票</span>
+        <a href="">
+            <img class="menu" src="img_task6/menu.png" />
+        </a>
+        <a href="task6-1.html">
+            <img class="close" src="img_task6/close.png" />
+        </a>
+    </div>
+    <div class="audio">
+        <p class="vote">发言讨论结束，大家请投票</p>
+        <a href="audio_task6/001.mp3">
+            <input class="player" type="image" src="img_task6/player.png" alt=""/>
+        </a>
+    </div>
+    <div class="content">
+        <div class="delta"></div>
+        <p class="notice">点击得票数最多人的头像</p>
+        <div class="table_row">
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">1号</p>
+                        </div>
+                    </div>
+                </button>
+                <input class="icon1" type="button" />
+                <input class="icon2" type="button" />
+                <input class="icon3" type="button" />
+                <input class="icon4" type="button" />
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">2号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">3号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="table_row">
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">4号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">5号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">6号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="table_row">
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">7号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">8号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">9号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="table_row">
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">10号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">11号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="table_cell">
+                <button class="select">
+                    <div class="profile">
+                        <p class="player">水民</p>
+                        <div class="number">
+                            <p class="numbers">12号</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="task6-2.html">
+            <input class="kill" type="submit" value="投死"/>
+        </a>
+    </div>
+</body>
+</html>
