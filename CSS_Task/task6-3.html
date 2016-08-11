@@ -28,6 +28,10 @@
                 font-size: 125%;
             }
         }
+        *{
+            margin: 0;
+            padding: 0;
+        }
         .header{
             width: 100%;
             height: 4.5rem;
@@ -68,8 +72,7 @@
         .profile{
             width: 6.3rem;
             height: 6.3rem;
-            /*margin: 2rem;*/
-            margin: 0;
+            margin: 15% auto;
             background-color: rgb(245,201,123);
             border: 4px solid white;
             position: relative;
@@ -83,7 +86,6 @@
         }
         p{
             font-family: 微软雅黑;
-            margin: 0;
         }
         p.vote{
             font-size: 1.2rem;
@@ -201,13 +203,8 @@
             position: absolute;
             right: 4%;
         }
-        button.select{
-            margin: 15%;
-            padding: 0;
-            border: 0;
-        }
-        button:active{
-            opacity: 0.8;
+        label{
+            position: relative;
         }
         input:hover{
             opacity: 0.8;
@@ -221,9 +218,16 @@
             top: 0;
             left: 15%;
         }
+        input[type="radio"] {
+            position: absolute;
+            visibility: hidden;
+            /*top: -9999px;
+            left: -9999px;*/
+        }
     </style>
 </head>
 <body>
+<form action="task6-2.html" method="get">
     <div class="header">
         <span class="title">投票</span>
         <a href="">
@@ -244,141 +248,153 @@
         <p class="notice">点击得票数最多人的头像</p>
         <div class="table_row">
             <div class="table_cell">
-                <button class="select">
+                <input id="select1" type="radio" checked="checked"/>
+                <label for="select1">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">1号</p>
                         </div>
                     </div>
-                </button>
+                </label>
                 <input class="icon1" type="button" />
                 <input class="icon2" type="button" />
                 <input class="icon3" type="button" />
                 <input class="icon4" type="button" />
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select2" type="radio" />
+                <label for="select2">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">2号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select3" type="radio" />
+                <label for="select3">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">3号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
         </div>
         <div class="table_row">
             <div class="table_cell">
-                <button class="select">
+                <input id="select4" type="radio" />
+                <label for="select4">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">4号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select5" type="radio" />
+                <label for="select5">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">5号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select6" type="radio" />
+                <label for="select6">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">6号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
         </div>
         <div class="table_row">
             <div class="table_cell">
-                <button class="select">
+                <input id="select7" type="radio" />
+                <label for="select7">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">7号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select8" type="radio" />
+                <label for="select8">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">8号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select9" type="radio" />
+                <label for="select9">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">9号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
         </div>
         <div class="table_row">
             <div class="table_cell">
-                <button class="select">
+                <input id="select10" type="radio" />
+                <label for="select10">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">10号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select11" type="radio" />
+                <label for="select11">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">11号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
             <div class="table_cell">
-                <button class="select">
+                <input id="select12" type="radio" />
+                <label for="select12">
                     <div class="profile">
                         <p class="player">水民</p>
                         <div class="number">
                             <p class="numbers">12号</p>
                         </div>
                     </div>
-                </button>
+                </label>
             </div>
         </div>
+
     </div>
     <div class="footer">
-        <a href="task6-2.html">
-            <input class="kill" type="submit" value="投死"/>
-        </a>
+        <input class="kill" type="submit" value="投死"/>
     </div>
+    </form>
 </body>
 </html>
