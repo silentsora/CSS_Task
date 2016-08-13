@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 1920px;
+    background-color: rgb(250,250,250);
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: inherit
+}
+a:link{
+    color: inherit;
+}
+h1{
+    font-family: 微软雅黑;
+    font-size: 18px;
+    color: black;
+    padding: 2rem 0;
+    text-align: center;
+}
+p{
+    font-family: 微软雅黑;
+    font-size: 16px;
+    color: gray;
+    text-align: left;
+}
+span{
+    font-family: 微软雅黑;
+    color: rgb(41,176,120);
+    font-size: 18px;
+}
+
+.header{
+    width: 62.5%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 18.75%;
+}
+span.phone{
+    color: rgb(41,176,120);
+    font-size: 14px;
+}
+img.contact{
+    float: right;
+    margin: 6px 8px;
+}
+
+.top_nav{
+    width: 62.5%;
+    height: 100px;
+    background-color: rgb(41,176,120);
+    padding: 0 18.75%;
+}
+.nav_wrapper{
+    width: 100px;
+    float: right;
+    text-align: center;
+    line-height: 96px;
+}
+.nav_wrapper:hover{
+    border-bottom: 4px solid white;
+}
+span.nav{
+    color: white;
+    font-size: 16px;
+}
+p.nav{
+    color: white;
+    font-size: 14px;
+}
+
+.bottom_nav{
+    width: 62.5%;
+    height: 170px;
+    background-color: rgb(41,176,120);
+    padding: 0 18.75%;
+    position: relative;
+    border-top: 1px solid rgb(50,192,134);
+    border-bottom: 1px solid rgb(50,192,134);
+}
+.bottom_nav span{
+    font-family: 微软雅黑;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    line-height: 2.5rem;
+    padding: .2rem 0;
+    position: relative;
+    top: 1.6rem;
+}
+.bottom_nav span:first-child{
+    font-size: 16px;
+}
+.bottom_nav a:hover{
+    border-bottom: 1px solid white;
+}
+.nav_middle{
+    position: absolute;
+    left: 40%;
+    top: 0;
+}
+.nav_middle span{
+    margin-right: 2.5rem;
+}
+.bottom_nav img{
+    position: absolute;
+    right: 22%;
+    top: 3.6rem;
+}
+.bottom_nav img + span{
+    font-size: 16px;
+    position: absolute;
+    right: 22%;
+    top: 1rem;
+}
+
+.footer{
+    width: 100%;
+    height: 30px;
+    background-color: rgb(41,176,120);
+}
+p.copyright{
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+}

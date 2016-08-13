@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task7-home</title>
+    <link href="task7-framework.css" rel="stylesheet" type="text/css" />
+    <style type="text/css" >
+        #banner{
+            width: 100%;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+        .slider{
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            top: 550px;
+            text-align: center;
+        }
+        li.shift{
+            float: left;
+            width: 1920px;
+            height: 100%;
+        }
+        #banners{
+            list-style: none;
+            width: 300%;
+            height: 600px;
+            position: relative;
+            text-align: center;
+            margin-left: 0;
+            animation: pic1 12s ease-out infinite;
+            -webkit-animation: pic1 12s ease-out infinite;
+        }
+        @keyframes pic1{
+            0% {margin-left: 0;}
+            30% {margin-left: 0;}
+            33% {margin-left: -100%;}
+            63% {margin-left: -100%;}
+            66% {margin-left: -200%;}
+            96% {margin-left: -200%;}
+            100% {margin-left: 0;}
+        }
+        /*@keyframes pic2{
+            0% {margin-left: -100%;}
+            30% {margin-left: -100%;}
+            33% {margin-left: -200%;}
+            63% {margin-left: -200%;}
+            66% {margin-left: 0;}
+            96% {margin-left: 0;}
+            100% {margin-left: -100%;}
+        }
+        @keyframes pic3{
+            0% {margin-left: -200%;}
+            30% {margin-left: -200%;}
+            33% {margin-left: 0;}
+            63% {margin-left: 0;}
+            66% {margin-left: -100%;}
+            96% {margin-left: -100%;}
+            100% {margin-left: -200%;}
+        }*/
+        input.circle{
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            border: 3px solid white;
+            position: relative;
+            background: rgba(255,255,255,0);
+        }
+        input.circle:active{
+            background: rgba(255,255,255,1);
+        }
+        #banner span{
+            color: white;
+            font-size: 40px;
+            position: absolute;
+            bottom: 320px;
+            left: 800px;
+            z-index: 2;
+        }
+        #banner span:first-child{
+            font-size: 100px;
+            position: absolute;
+            bottom: 220px;
+            left: 420px;
+        }
+        #banner span:last-child{
+            font-size: 60px;
+            position: absolute;
+            bottom: 220px;
+            left: 650px;
+        }
+
+        .content{
+            width: 100%;
+        }
+
+        .feature{
+            display: table;
+            width: 62.5%;
+            margin: 7% 18.75%;
+        }
+        .fea1{
+            display: table-cell;
+            width: 25%;
+            text-align: center;
+            padding: 0 1.8rem;
+        }
+        .fea2{
+            display: table-cell;
+            width: 25%;
+            text-align: left;
+            padding: 0 3rem;
+            border-left: 1px dashed gray;
+        }
+        p.center{
+            text-align: center;
+        }
+
+        .process{
+            border: 0;
+            width: 62.5%;
+            margin: 0 18.75%;
+        }
+        tr{
+            height: 8rem;
+            position: relative;
+        }
+        td{
+            width: 25%;
+            text-align: center;
+            position: relative;
+            left: 1rem;
+        }
+        .circle_big{
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            border: 1px solid lightgray;
+            box-shadow: 0 2px 1px lightgray;
+            position: absolute;
+            left: 0;
+            top: 1.6rem;
+        }
+        p.number{
+            font-size: 16px;
+            margin: 1rem 0 2rem 0;
+        }
+        span.order{
+            line-height: 70px;
+        }
+        p.step{
+            font-size: 14px;
+            margin-left: 6rem;
+            margin-right: 3.2rem;
+            line-height: 35px;
+        }
+        img.next{
+            position: absolute;
+            right: 1rem;
+            top: 3rem;
+        }
+
+        .exhibition{
+            width: 62.5%;
+            margin: 5% 18.75%;
+            position: relative;
+            text-align: center;
+        }
+        .student{
+            display: inline-block;
+            width: 210px;
+            height: 310px;
+            background-color: white;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            text-align: center;
+            padding: 30px;
+            margin: .6rem;
+            box-shadow: 0 2px 2px lightgray;
+        }
+
+        .partner{
+            width: 62.5%;
+            height: 180px;
+            margin: 5% 18.75%;
+            background-color: white;
+            text-align: center;
+            box-shadow: 1px 1px 4px lightgrey;
+            font-size: 0;
+        }
+        .company{
+            display: inline-block;
+            width: 240px;
+            height: 180px;
+            background-color: white;
+            position: relative;
+        }
+        .company:hover{
+            box-shadow: 0 0 20px lightgrey;
+            z-index: 1;
+        }
+        img.logo{
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left:0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .link{
+            width: 62.5%;
+            height: 135px;
+            padding: 0 18.75%;
+            background-color: white;
+            text-align: center;
+        }
+        .link h1{
+            padding: 1rem 0;
+        }
+        ul.links{
+            width: 100%;
+            height: 2rem;
+            list-style: disc inside;
+            margin-bottom: 1px;
+        }
+        li.goto{
+            width: 6%;
+            margin-right: 4%;
+            font-family: 微软雅黑;
+            font-size: 14px;
+            color: gray;
+            text-align: left;
+            float: left;
+            line-height: 2rem;
+        }
+        li.goto:hover{
+            border-bottom: 1px solid rgb(41,176,120);
+        }
+
+        /*#banner-1:active ~#banner #banners{
+            -webkit-animation-name: pic1;
+            animation-name: pic1;
+        }
+        #banner-2:active ~#banner #banners{
+            -webkit-animation-name: pic2;
+            animation-name: pic2;
+        }
+        #banner-3:active ~#banner #banners{
+            -webkit-animation-name: pic3;
+            animation-name: pic3;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="phone">客服热线：010-594-78634</span>
+        <a href=""><img class="contact" src="img_task7/weixin.jpg" /></a>
+        <a href=""><img class="contact" src="img_task7/qq.jpg" /></a>
+        <a href=""><img class="contact" src="img_task7/weibo.jpg" /></a>
+    </div>
+    <div class="top_nav">
+        <a href="">
+            <div class="nav_wrapper">
+                <span class="nav">关于</span>
+            </div>
+        </a>
+        <a href="">
+            <div class="nav_wrapper">
+                <span class="nav">推荐</span>
+            </div>
+        </a>
+        <a href="">
+            <div class="nav_wrapper">
+                <span class="nav">职业</span>
+            </div>
+        </a>
+        <a href="">
+            <div class="nav_wrapper">
+                <span class="nav">首页</span>
+            </div>
+        </a>
+    </div>
+    <div id="banner">
+        <span>50万</span>
+        <ul id="banners">
+            <li class="shift"><img src="img_task7/banner.jpg" alt="图片1"/></li>
+            <li class="shift"><img src="img_task7/banner.jpg" alt="图片2"/></li>
+            <li class="shift"><img src="img_task7/banner.jpg" alt="图片3"/></li>
+        </ul>
+        <div class="slider">
+            <input class="circle" id="banner-1" type="button" />
+            <input class="circle" id="banner-2" type="button" />
+            <input class="circle" id="banner-3" type="button" />
+        </div>
+        <span>作为你一个初级菜鸟，你是否想要了解</span>
+        <span>年薪的程序员,都会哪些技能呢？</span>
+    </div>
+    <div class="content">
+        <div class="feature">
+            <div class="fea1">
+                <img src="img_task7/fea_01.jpg" alt="" />
+                <h1>高效</h1>
+                <p>将五到七年的成长时间，缩短到一年到三年。</p>
+            </div>
+            <div class="fea1">
+                <img src="img_task7/fea_02.jpg" alt="" />
+                <h1>规范</h1>
+                <p class="center">标准的实战教程，不会走弯路。</p>
+            </div>
+            <div class="fea1">
+                <img src="img_task7/fea_03.jpg" alt="" />
+                <h1>人脉</h1>
+                <p>同班好友，同院学长，技术大师，入学就混入职脉圈，为以后铺平道路。</p>
+            </div>
+            <div class="fea2">
+                <img src="img_task7/fea_04.jpg" alt="" />
+                <span>12400</span>
+                <p class="number">累计在线学习人数</p>
+                <img src="img_task7/fea_04.jpg" alt="" />
+                <span>12400</span>
+                <p class="number">学员已经找到满意工作</p>
+            </div>
+        </div>
+        <div class="process">
+            <h1>如何学习</h1>
+            <table>
+                <tr>
+                    <td>
+                        <div class="circle_big">
+                            <span class="order">1</span>
+                        </div>
+                        <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+                        <img class="next" src="img_task7/step.jpg" />
+                    </td>
+                    <td>
+                        <div class="circle_big">
+                        <span class="order">1</span>
+                    </div>
+                        <p class="step">了解职业前景薪金待遇、竞争压力等</p>
+                        <img class="next" src="img_task7/step.jpg" />
+                    </td>
+                    <td>
+                        <div class="circle_big">
+                            <span class="order">1</span>
+                        </div>
+                        <p class="step">掌握行业内顶级技能</p>
+                        <img class="next" src="img_task7/step.jpg" />
+                    </td>
+                    <td>
+                        <div class="circle_big">
+                            <span class="order">1</span>
+                        </div>
+                        <p class="step">查看职业目标任务</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="circle_big">
+                            <span class="order">1</span>
+                        </div>
+                        <p class="step">参考学习资源，掌握技能点，逐个完成任务</p>
+                        <img class="next" src="img_task7/step.jpg" />
+                    </td>
+                    <td>
+                        <div class="circle_big">
+                            <span class="order">1</span>
+                        </div>
+                        <p class="step">加入班级，和小伙伴们互帮互助，一块学习</p>
+                        <img class="next" src="img_task7/step.jpg" />
+                    </td>
+                    <td>
+                        <div class="circle_big">
+                            <span class="order">1</span>
+                        </div>
+                        <p class="step">选择导师，一路引导，加速自己成长</p>
+                        <img class="next" src="img_task7/step.jpg" />
+                    </td>
+                    <td>
+                        <div class="circle_big">
+                        <span class="order">1</span>
+                    </div>
+                        <p class="step">完成职业技能，升级业界大牛</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="exhibition">
+            <h1>优秀学员展示</h1>
+            <div class="student">
+                <img src="img_task7/profile_01.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+            <div class="student">
+                <img src="img_task7/profile_02.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+            <div class="student">
+                <img src="img_task7/profile_03.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+            <div class="student">
+                <img src="img_task7/profile_04.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+        </div>
+        <h1>战略合作企业</h1>
+        <div class="partner">
+            <a href="">
+                <div class="company">
+                    <img class="logo" src="img_task7/company_01.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="logo" src="img_task7/company_02.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="logo" src="img_task7/company_03.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="logo" src="img_task7/company_04.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="logo" src="img_task7/company_05.jpg" />
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="link">
+        <h1>友情链接</h1>
+        <ul class="links">
+            <li class="goto"><a href="">手机软件</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+            <li class="goto"><a href="">手机软件</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+        </ul>
+        <ul class="links">
+            <li class="goto"><a href="">手机软件</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+            <li class="goto"><a href="">手机软件</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+            <li class="goto"><a href="">教师招聘</a></li>
+            <li class="goto"><a href="">找工作</a></li>
+        </ul>
+    </div>
+    <div class="bottom_nav">
+        <span>技能树——改变你我</span><br>
+        <span>&nbsp</span><br>
+        <span><a href="">关于我们</a></span>
+        <span>|</span>
+        <span><a href="">联系我们</a></span>
+        <span>|</span>
+        <span><a href="task7-2.html">合作企业</a></span>
+        <div class="nav_middle">
+            <span>旗下网站</span><br>
+            <span><a href="">草船云孵化器</a></span>
+            <span><a href="">最强IT特训营</a></span><br>
+            <span><a href="">葡萄藤轻游戏</a></span>
+            <span><a href="">桌游精灵</a></span>
+        </div>
+        <img src="img_task7/qr_code.jpg" />
+        <span>微信公众平台</span>
+    </div>
+    <div class="footer">
+        <p class="copyright">Copyright &copy; 2015技能树 www.jnshu.com  All Rights Reserved | 京ICP备13005880号</p>
+    </div>
+</body>
+</html>
