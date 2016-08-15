@@ -54,6 +54,7 @@ img.contact{
     height: 100px;
     background-color: rgb(41,176,120);
     padding: 0 18.75%;
+    position: relative;
 }
 .nav_wrapper{
     width: 100px;
