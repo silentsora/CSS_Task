@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task9</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 1920px;
+        }
+        span{
+            font-family: 微软雅黑;
+            font-size: 16px;
+            color: white;
+        }
+        p{
+            font-family: 微软雅黑;
+        }
+        h1{
+            font-family: 微软雅黑;
+            color: black;
+            font-size: 22px;
+            font-weight: normal;
+        }
+        h2{
+            font-family: 微软雅黑;
+            font-weight: normal;
+            background-color: rgb(242,242,242);
+            color: rgb(29,122,217);
+            font-size: 18px;
+            line-height: 44px;
+            padding-left: 10px;
+            border-bottom: 1px solid lightgray;
+        }
+        .header{
+            width: 62.5%;
+            height: 40px;
+            background-color: rgb(29,122,217);
+            padding: 0 18.75%;
+            line-height: 40px;
+            position: relative;
+        }
+        .header > span{
+            float: left;
+            font-size:14px;
+        }
+        .register span{
+            color: black;
+        }
+        .login{
+            width: 55px;
+            height: 40px;
+            float: right;
+            border-left: 1px solid white;
+            text-align: center;
+        }
+        .register{
+            width: 105px;
+            height: 40px;
+            float: right;
+            background-color: white;
+            text-align: center;
+        }
+        .top{
+            width: 62.5%;
+            height: 100px;
+            padding: 0 18.75%;
+            background-color: rgb(249,249,249);
+        }
+        input.nav{
+            width: auto;
+            height: 46px;
+            margin: 27px 0 27px 60px;
+            padding: 0 16px;
+            border: 0;
+            border-radius: 5px;
+            box-shadow: 1px 1px 1px lightgrey;
+            background-color: white;
+            font-size: 16px;
+            font-family: 微软雅黑;
+            color: black;
+            float: right;
+        }
+        input.nav:hover{
+            background-color: rgb(29,122,217);
+            color: white;
+        }
+        .main{
+            width: 62.5%;
+            height: 1045px;
+            padding: 0 18.75%;
+            position: relative;
+        }
+        .line{
+            width: 160px;
+            height: 5px;
+            border-radius: 2px;
+            background-color: lightgray;
+            text-align: center;
+            float: right;
+            position: relative;
+        }
+        .line:last-child{
+            background-color: orange;
+        }
+        .line p{
+            font-size: 18px;
+            color: lightgray;
+            margin-top: 32px;
+        }
+        .line:last-child p{
+            color: orange;
+        }
+        .circle{
+            width: 20px;
+            height: 20px;
+            margin: auto;
+            border-radius: 100%;
+            background-color: lightgray;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        .line:last-child .circle{
+            width: 25px;
+            height: 25px;
+            background-color: orange;
+        }
+        .circle span{
+            line-height: 20px;
+            font-size: 14px;
+        }
+        .line:last-child span{
+            line-height: 25px;
+            font-size: 16px;
+        }
+        .long_line{
+            width: 640px;
+            height: 5px;
+            border-radius: 2px;
+            background-color: lightgray;
+            position: absolute;
+            top: 48px;
+            right: 360px;
+        }
+        .option{
+            width: 100%;
+            height: 800px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            position: relative;
+            top: 200px;
+        }
+        input[type="radio"]{
+            margin-left: 40px;
+            visibility: hidden;
+        }
+        label{
+            font-family: 微软雅黑;
+            font-size: 18px;
+            color: dimgray;
+            padding-left: 30px;
+            background: url(img_task9/check.jpg) no-repeat left center;
+        }
+        input[type="radio"]:checked + label{
+            background: url(img_task9/checked.jpg) no-repeat;
+        }
+        ul{
+            width: 100%;
+            border-bottom: 1px solid lightgray;
+            background: rgb(251,252,255);
+            position: relative;
+           /* height: 130px;*/
+        }
+        li{
+            display: inline;
+            font-family: 微软雅黑;
+            font-size: 18px;
+            color: dimgray;
+            position: relative;
+        }
+        ul.type li{
+            line-height: 85px;
+        }
+        ul.size li{
+            line-height: 70px;
+        }
+        ul.material li{
+            line-height: 140px;
+        }
+        .main h1{
+            position: absolute;
+            top: 155px;
+        }
+        .main h1:before {
+            display: inline-block;
+            content:"";
+            margin: 5px 5px 5px 0;
+            width: 4px;
+            height: 22px;
+            border-radius: 2px;
+            background-color: rgb(29,122,217);
+            float: left;
+        }
+        h2:before{
+            content: url(img_task9/form_01.jpg);
+            vertical-align: middle;
+        }
+        ul.type + h2:before{
+            content: url(img_task9/form_02.jpg);
+            vertical-align: middle;
+        }
+        ul.size + h2:before{
+            content: url(img_task9/form_03.jpg);
+            vertical-align: middle;
+        }
+        input[type="number"]{
+            width: 70px;
+            height: 28px;
+            margin: 0 8px;
+        }
+        input[type="submit"]{
+            width: 180px;
+            height: 45px;
+            background-color: rgb(225,80,83);
+            color: white;
+            font-family: 微软雅黑;
+            font-size: 24px;
+            margin: 0 auto;
+            border: 0;
+            border-radius: 5px;
+            position: absolute;
+            top: 650px;
+            left: 0;
+            right: 0;
+        }
+        select{
+            width: 130px;
+            height: 40px;
+            margin: auto 0;
+            padding: 0 20px;
+            font-family: 微软雅黑;
+            font-size: 14px;
+            color: gray;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 10px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: url(img_task9/select.jpg) no-repeat right;
+            background-position-x: 100px;
+        }
+        .bottom{
+            width: 62.5%;
+            height: 205px;
+            padding: 0 18.75%;
+            background-color: rgb(249,249,249);
+            position: relative;
+        }
+        .bottom h1{
+            display: inline;
+            color: gray;
+            font-size: 18px;
+            position:absolute;
+            line-height: 40px;
+            top: 55px;
+            left: 18.75%;
+        }
+        .bottom a{
+            text-decoration: none;
+            font-family: 微软雅黑;
+            font-size: 14px;
+            color: gray;
+            line-height: 40px;
+            margin: 0 16px;
+            position: relative;
+            left: 500px;
+            top: 55px;
+        }
+        .bottom a:hover{
+            color: rgb(29,122,217);
+        }
+        .bottom p{
+            color: gray;
+            font-size: 14px;
+            line-height: 30px;
+            position: relative;
+            bottom: 20px;
+            left: 950px;
+        }
+        .bottom img{
+            position: absolute;
+            margin: auto 0;
+            top: 0;
+            bottom: 0;
+            right: 18.75%;
+        }
+        .footer{
+            width: 62.5%;
+            height: 30px;
+            background-color: rgb(29,122,217);
+            padding: 0 18.75%;
+            line-height: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .footer span{
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span>客服热线:010-594-79634</span>
+        <a href="">
+            <div class="register">
+                <span>注册</span>
+            </div>
+        </a>
+        <a href="">
+            <div class="login">
+                <span>登陆</span>
+            </div>
+        </a>
+    </div>
+    <div class="top">
+        <a href=""><input class="nav" type="button" value="品质保障"/></a>
+        <a href=""><input class="nav" type="button" value="标准箱"/></a>
+        <a href=""><input class="nav" type="button" value="在线定制"/></a>
+        <a href=""><input class="nav" type="button" value="首页"/></a>
+    </div>
+    <div class="main">
+        <div class="long_line">
+            <div class="line">
+                <div class="circle">
+                <span>4</span>
+                </div>
+                <p>4.确认下单</p>
+            </div>
+            <div class="line">
+                <div class="circle">
+                    <span>3</span>
+                </div>
+                <p>3.上传附件</p>
+            </div>
+            <div class="line">
+                <div class="circle">
+                    <span>2</span>
+                </div>
+                <p>2.选择数量</p>
+            </div>
+            <div class="line">
+                <div class="circle">
+                    <span>1</span>
+                </div>
+                <p>1.定制纸箱</p>
+            </div>
+        </div>
+        <h1>请您按照以下步骤来定制您的纸箱</h1>
+        <form class="option">
+            <h2>选择箱型</h2>
+            <ul class="type">
+                <li>
+                    <input id="type1" name="type" type="radio" required="required" />
+                    <label for="type1">对口箱</label>
+                </li>
+                <li>
+                    <input id="type2" name="type" type="radio" required="required" />
+                    <label for="type2">飞机盒</label>
+                </li>
+                <li>
+                    <input id="type3" name="type" type="radio" required="required" />
+                    <label for="type3">天地盖</label>
+                </li>
+                <select>
+                    <option>查看详情</option>
+                    <option>查看详情</option>
+                    <option>查看详情</option>
+                </select>
+            </ul>
+            <h2>确定尺寸</h2>
+            <ul class="size">
+                <li>
+                    <input id="size1" name="size" type="radio" required="required" />
+                    <label for="size1">外径</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    长<input type="number" name="length" />mm&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    宽<input type="number" name="width" />mm&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    高<input type="number" name="height" />mm
+                </li><br>
+                <li>
+                    <input id="size2" name="size" type="radio" />
+                    <label for="size2">内径</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    长<input type="number" name="length" />mm&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    宽<input type="number" name="width" />mm&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    高<input type="number" name="height" />mm
+                </li>
+                <select>
+                    <option>查看详情</option>
+                    <option>查看详情</option>
+                    <option>查看详情</option>
+                </select>
+            </ul>
+            <h2>选择材质</h2>
+            <ul class="material">
+                <li>
+                    <input id="material1" name="material" type="radio" required="required" />
+                    <label for="material1">三层A瓦优质</label>
+                </li>
+                <li>
+                    <input id="material2" name="material" type="radio" required="required" />
+                    <label for="material2">三层A瓦优质</label>
+                </li>
+                <li>
+                    <input id="material3" name="material" type="radio" required="required" />
+                    <label for="material3">三层A瓦优质</label>
+                </li>
+                <li>
+                    <input id="material4" name="material" type="radio" required="required" />
+                    <label for="material4">三层A瓦优质</label>
+                </li>
+                <li>
+                    <input id="material5" name="material" type="radio" required="required" />
+                    <label for="material5">三层A瓦优质</label>
+                </li>
+                <select>
+                    <option>查看详情</option>
+                    <option>查看详情</option>
+                    <option>查看详情</option>
+                </select>
+            </ul>
+            <input type="submit" value="下一步" />
+        </form>
+    </div>
+    <div class="bottom">
+        <h1>51包装网—— 纸箱包装首选服务平台</h1>
+        <a href="">关于我们</a>
+        <a href="">配送流程</a>
+        <a href="">联系我们</a><br>
+        <a href="">下单指南</a>
+        <a href="">媒体介绍</a>
+        <p>TEL:400-0000-000</p>
+        <p>企业QQ:123456789</p>
+        <p>微信号:XXXXXXX</p>
+        <img src="img_task9/qr_code.jpg" alt="二维码" />
+    </div>
+    <div class="footer">
+        <span>北京五一包装科技有限公司Copyright &copy;2015
+            &nbsp&nbsp&nbsp51baozhuang.com015
+            &nbsp&nbsp&nbspAll rights reserved.
+            &nbsp&nbsp&nbsp京icp备99999999-1</span>
+    </div>
+</body>
+</html>
