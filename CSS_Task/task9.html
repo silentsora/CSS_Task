@@ -171,12 +171,14 @@
         input[type="radio"]:checked + label{
             background: url(img_task9/checked.jpg) no-repeat;
         }
+        /*input[type="radio"]:checked ~ input[type="number"]{
+            required: required;
+        }*/
         ul{
             width: 100%;
             border-bottom: 1px solid lightgray;
             background: rgb(251,252,255);
             position: relative;
-           /* height: 130px;*/
         }
         li{
             display: inline;
@@ -318,7 +320,7 @@
 </head>
 <body>
     <div class="header">
-        <span>客服热线:010-594-79634</span>
+        <span>客服热线：010-594-79634</span>
         <a href="">
             <div class="register">
                 <span>注册</span>
@@ -368,15 +370,15 @@
             <h2>选择箱型</h2>
             <ul class="type">
                 <li>
-                    <input id="type1" name="type" type="radio" required="required" />
+                    <input id="type1" name="type" type="radio" checked="checked" />
                     <label for="type1">对口箱</label>
                 </li>
                 <li>
-                    <input id="type2" name="type" type="radio" required="required" />
+                    <input id="type2" name="type" type="radio" />
                     <label for="type2">飞机盒</label>
                 </li>
                 <li>
-                    <input id="type3" name="type" type="radio" required="required" />
+                    <input id="type3" name="type" type="radio" />
                     <label for="type3">天地盖</label>
                 </li>
                 <select>
@@ -388,7 +390,7 @@
             <h2>确定尺寸</h2>
             <ul class="size">
                 <li>
-                    <input id="size1" name="size" type="radio" required="required" />
+                    <input id="size1" name="size" type="radio" checked="checked" />
                     <label for="size1">外径</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     长<input type="number" name="length" />mm&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     宽<input type="number" name="width" />mm&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -410,23 +412,23 @@
             <h2>选择材质</h2>
             <ul class="material">
                 <li>
-                    <input id="material1" name="material" type="radio" required="required" />
+                    <input id="material1" name="material" type="radio" checked="checked" />
                     <label for="material1">三层A瓦优质</label>
                 </li>
                 <li>
-                    <input id="material2" name="material" type="radio" required="required" />
+                    <input id="material2" name="material" type="radio" />
                     <label for="material2">三层A瓦优质</label>
                 </li>
                 <li>
-                    <input id="material3" name="material" type="radio" required="required" />
+                    <input id="material3" name="material" type="radio" />
                     <label for="material3">三层A瓦优质</label>
                 </li>
                 <li>
-                    <input id="material4" name="material" type="radio" required="required" />
+                    <input id="material4" name="material" type="radio" />
                     <label for="material4">三层A瓦优质</label>
                 </li>
                 <li>
-                    <input id="material5" name="material" type="radio" required="required" />
+                    <input id="material5" name="material" type="radio" />
                     <label for="material5">三层A瓦优质</label>
                 </li>
                 <select>
@@ -445,9 +447,9 @@
         <a href="">联系我们</a><br>
         <a href="">下单指南</a>
         <a href="">媒体介绍</a>
-        <p>TEL:400-0000-000</p>
-        <p>企业QQ:123456789</p>
-        <p>微信号:XXXXXXX</p>
+        <p>TEL：400-0000-000</p>
+        <p>企业QQ：123456789</p>
+        <p>微信号：XXXXXXX</p>
         <img src="img_task9/qr_code.jpg" alt="二维码" />
     </div>
     <div class="footer">
