@@ -1,0 +1,79 @@
+<head>
+    <title>task-1</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style type="text/css">
+        body
+        {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .block1
+        {
+        	display: inline-block;
+            border-radius:7%;
+            padding-left: 31%;
+            padding-bottom: 31%;
+            background: orange;
+            float: left;
+            margin: 1% 1% 1% 1.5%;
+        }
+        .block2
+        {
+            display: inline-block;
+            border-radius:7%;
+            padding-left: 31%;
+            padding-bottom: 31%;
+            background: orange;
+            float: left;
+            margin: 1%;
+        }
+        .block3
+        {
+            display: inline-block;
+            border-radius:7%;
+            padding-left: 31%;
+            padding-bottom: 31%;
+            background: orange;
+            float: right;
+            margin: 1% 1.5% 1% 1%;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div id="block1" class="block1"></div>
+    <div id="block2" class="block2"></div>
+    <div id="block3" class="block3"></div>
+    <div id="block4" class="block1"></div>
+    <div id="block5" class="block2"></div>
+    <div id="block6" class="block3"></div>
+    <div id="block7" class="block1"></div>
+    <div id="block8" class="block2"></div>
+    <div id="block9" class="block3"></div>
+<script>
+    var randomColor = Math.floor(Math.random()*3+1); //颜色随机数
+    var randomBlock = Math.floor(Math.random()*9+1); //格子随机数
+    var randomId = "block" + randomBlock.toString(); //动态ID
+    function colorChange(){
+        var changeBlock1 = document.getElementById(randomId);
+        if (randomColor==1){
+            changeBlock1.style.backgroundColor = "red";
+        }
+        else if(randomColor==2){
+            changeBlock1.style.backgroundColor = "green";
+        }
+        else{
+            changeBlock1.style.backgroundColor = "blue";
+        }
+        randomColor = Math.floor(Math.random()*3+1);
+        randomBlock = Math.floor(Math.random()*9+1);
+        randomId = "block" + j.toString();
+    }
+    setInterval("colorChange();",1000);
+</script>
+</body>
