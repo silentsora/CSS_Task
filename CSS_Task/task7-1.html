@@ -11,17 +11,18 @@
             position: relative;
             overflow: hidden;
         }
+        #banner li{
+            float: left;
+            width: 1920px;
+            height: 100%;
+            position: relative;
+        }
         .slider{
             width: 100%;
             height: 50px;
             position: absolute;
             top: 550px;
             text-align: center;
-        }
-        li.shift{
-            float: left;
-            width: 1920px;
-            height: 100%;
         }
         #banners{
             list-style: none;
@@ -32,6 +33,7 @@
             margin-left: 0;
             animation: pic1 12s ease-out infinite;
             -webkit-animation: pic1 12s ease-out infinite;
+            -moz-animation: pic1 12s ease-out infinite;
         }
         @keyframes pic1{
             0% {margin-left: 0;}
@@ -42,7 +44,7 @@
             96% {margin-left: -200%;}
             100% {margin-left: 0;}
         }
-        /*@keyframes pic2{
+        @keyframes pic2{
             0% {margin-left: -100%;}
             30% {margin-left: -100%;}
             33% {margin-left: -200%;}
@@ -59,8 +61,28 @@
             66% {margin-left: -100%;}
             96% {margin-left: -100%;}
             100% {margin-left: -200%;}
-        }*/
-        input.circle{
+        }
+        input[type="radio"]{
+            position: absolute;
+            visibility: hidden;
+        }
+        #banner-1:checked ~ #banners{
+            -webkit-animation-name: pic1;
+            -moz-animation-name: pic1;
+            animation-name: pic1;
+        }
+        #banner-2:checked ~ #banners{
+            -webkit-animation-name: pic2;
+            -moz-animation-name: pic2;
+            animation-name: pic2;
+        }
+        #banner-3:checked ~ #banners{
+            -webkit-animation-name: pic3;
+            -moz-animation-name: pic3;
+            animation-name: pic3;
+        }
+        label.circle{
+            display: inline-block;
             width: 20px;
             height: 20px;
             border-radius: 100%;
@@ -68,34 +90,41 @@
             position: relative;
             background: rgba(255,255,255,0);
         }
-        input.circle:active{
-            background: rgba(255,255,255,1);
+        #light1{
+            display: inline-block;
+            width: 23px;
+            height: 23px;
+            border-radius: 100%;
+            background: rgb(255,255,255);
+            position:absolute;
+            top: 551px;
+            left: 914px;
         }
-        #banner span{
-            color: white;
-            font-size: 40px;
-            position: absolute;
-            bottom: 320px;
-            left: 800px;
-            z-index: 2;
+        #light2{
+            display: inline-block;
+            width: 23px;
+            height: 23px;
+            border-radius: 100%;
+            background: rgb(255,255,255);
+            position:absolute;
+            top: 551px;
+            left: 950px;
         }
-        #banner span:first-child{
-            font-size: 100px;
-            position: absolute;
-            bottom: 220px;
-            left: 420px;
+        #light3{
+            display: inline-block;
+            width: 23px;
+            height: 23px;
+            border-radius: 100%;
+            background: rgb(255,255,255);
+            position:absolute;
+            top: 551px;
+            left: 982px;
         }
-        #banner span:last-child{
-            font-size: 60px;
-            position: absolute;
-            bottom: 220px;
-            left: 650px;
-        }
-
+        /*-------------------------*/
         .content{
             width: 100%;
         }
-
+        /*-------------------------*/
         .feature{
             display: table;
             width: 62.5%;
@@ -117,7 +146,11 @@
         p.center{
             text-align: center;
         }
-
+        p.number{
+            font-size: 16px;
+            margin: 1rem 0 2rem 0;
+        }
+        /*-------------------------*/
         .process{
             border: 0;
             width: 62.5%;
@@ -144,11 +177,7 @@
             left: 0;
             top: 1.6rem;
         }
-        p.number{
-            font-size: 16px;
-            margin: 1rem 0 2rem 0;
-        }
-        span.order{
+        .circle_big span{
             line-height: 70px;
         }
         p.step{
@@ -157,12 +186,12 @@
             margin-right: 3.2rem;
             line-height: 35px;
         }
-        img.next{
+        .process img{
             position: absolute;
             right: 1rem;
             top: 3rem;
         }
-
+        /*-------------------------*/
         .exhibition{
             width: 62.5%;
             margin: 5% 18.75%;
@@ -181,7 +210,7 @@
             margin: .6rem;
             box-shadow: 0 2px 2px lightgray;
         }
-
+        /*-------------------------*/
         .partner{
             width: 62.5%;
             height: 180px;
@@ -210,7 +239,7 @@
             bottom: 0;
             right: 0;
         }
-
+        /*-------------------------*/
         .link{
             width: 62.5%;
             height: 135px;
@@ -240,19 +269,6 @@
         li.goto:hover{
             border-bottom: 1px solid rgb(41,176,120);
         }
-
-        /*#banner-1:active ~#banner #banners{
-            -webkit-animation-name: pic1;
-            animation-name: pic1;
-        }
-        #banner-2:active ~#banner #banners{
-            -webkit-animation-name: pic2;
-            animation-name: pic2;
-        }
-        #banner-3:active ~#banner #banners{
-            -webkit-animation-name: pic3;
-            animation-name: pic3;
-        }*/
     </style>
 </head>
 <body>
@@ -285,19 +301,28 @@
         </a>
     </div>
     <div id="banner">
-        <span>50万</span>
+        <input id="banner-1" name="banner" type="radio" />
+        <input id="banner-2" name="banner" type="radio" />
+        <input id="banner-3" name="banner" type="radio" />
         <ul id="banners">
-            <li class="shift"><img src="img_task7/banner.jpg" alt="图片1"/></li>
-            <li class="shift"><img src="img_task7/banner.jpg" alt="图片2"/></li>
-            <li class="shift"><img src="img_task7/banner.jpg" alt="图片3"/></li>
+            <li>
+                <img src="img_task7/banner_01.jpg" alt="图片1"/>
+                <div id="light1"></div>
+            </li>
+            <li>
+                <img src="img_task7/banner_02.jpg" alt="图片2"/>
+                <div id="light2"></div>
+            </li>
+            <li>
+                <img src="img_task7/banner_03.jpg" alt="图片3"/>
+                <div id="light3"></div>
+            </li>
         </ul>
         <div class="slider">
-            <input class="circle" id="banner-1" type="button" />
-            <input class="circle" id="banner-2" type="button" />
-            <input class="circle" id="banner-3" type="button" />
+            <label class="circle" for="banner-1"></label>
+            <label class="circle" for="banner-2"></label>
+            <label class="circle" for="banner-3"></label>
         </div>
-        <span>作为你一个初级菜鸟，你是否想要了解</span>
-        <span>年薪的程序员,都会哪些技能呢？</span>
     </div>
     <div class="content">
         <div class="feature">
@@ -331,28 +356,28 @@
                 <tr>
                     <td>
                         <div class="circle_big">
-                            <span class="order">1</span>
+                            <span>1</span>
                         </div>
                         <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
-                        <img class="next" src="img_task7/step.jpg" />
+                        <img src="img_task7/step.jpg" />
                     </td>
                     <td>
                         <div class="circle_big">
-                        <span class="order">2</span>
+                        <span>2</span>
                     </div>
                         <p class="step">了解职业前景薪金待遇、竞争压力等</p>
-                        <img class="next" src="img_task7/step.jpg" />
+                        <img src="img_task7/step.jpg" />
                     </td>
                     <td>
                         <div class="circle_big">
-                            <span class="order">3</span>
+                            <span>3</span>
                         </div>
                         <p class="step">掌握行业内顶级技能</p>
-                        <img class="next" src="img_task7/step.jpg" />
+                        <img src="img_task7/step.jpg" />
                     </td>
                     <td>
                         <div class="circle_big">
-                            <span class="order">4</span>
+                            <span>4</span>
                         </div>
                         <p class="step">查看职业目标任务</p>
                     </td>
@@ -360,28 +385,28 @@
                 <tr>
                     <td>
                         <div class="circle_big">
-                            <span class="order">5</span>
+                            <span>5</span>
                         </div>
                         <p class="step">参考学习资源，掌握技能点，逐个完成任务</p>
-                        <img class="next" src="img_task7/step.jpg" />
+                        <img src="img_task7/step.jpg" />
                     </td>
                     <td>
                         <div class="circle_big">
-                            <span class="order">6</span>
+                            <span>6</span>
                         </div>
                         <p class="step">加入班级，和小伙伴们互帮互助，一块学习</p>
-                        <img class="next" src="img_task7/step.jpg" />
+                        <img src="img_task7/step.jpg" />
                     </td>
                     <td>
                         <div class="circle_big">
-                            <span class="order">7</span>
+                            <span>7</span>
                         </div>
                         <p class="step">选择导师，一路引导，加速自己成长</p>
-                        <img class="next" src="img_task7/step.jpg" />
+                        <img src="img_task7/step.jpg" />
                     </td>
                     <td>
                         <div class="circle_big">
-                        <span class="order">8</span>
+                        <span>8</span>
                     </div>
                         <p class="step">完成职业技能，升级业界大牛</p>
                     </td>
