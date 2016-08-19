@@ -52,25 +52,6 @@
     <div id="block7" class="block1"></div>
     <div id="block8" class="block2"></div>
     <div id="block9" class="block3"></div>
-<script>
-    var randomColor = Math.floor(Math.random()*3+1); //颜色随机数
-    var randomBlock = Math.floor(Math.random()*9+1); //格子随机数
-    var randomId = "block" + randomBlock.toString(); //动态ID
-    function colorChange(){
-        var changeBlock1 = document.getElementById(randomId);
-        if (randomColor==1){
-            changeBlock1.style.backgroundColor = "red";
-        }
-        else if(randomColor==2){
-            changeBlock1.style.backgroundColor = "green";
-        }
-        else{
-            changeBlock1.style.backgroundColor = "blue";
-        }
-        randomColor = Math.floor(Math.random()*3+1);
-        randomBlock = Math.floor(Math.random()*9+1);
-        randomId = "block" + randomBlock.toString();
-    }
-    setInterval("colorChange();",1000);
+<script src="task1.js" type="text/javascript" language="JavaScript" charset="utf-8">
 </script>
 </body>

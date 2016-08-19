@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task10</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <script src="jquery/jquery-3.1.0.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <style type="text/css">
+        body{
+            width: 100%;
+            background-color: rgb(250,250,250);
+        }
+        h1 {
+            font-family: 微软雅黑;
+            font-size: 1.125rem;
+            color: black;
+            text-align: center;
+            font-weight: bold;
+        }
+        p{
+            font-family: 微软雅黑;
+            font-size: 1rem;
+            color: gray;
+            text-align: left;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        .container{
+            width: 100%;
+            margin: 0;
+            padding: 1rem 0 4rem;
+        }
+        .container:first-child{
+            padding: 0;
+        }
+        .row{
+            width: 62.5%;
+            margin: 0 18.75%;
+            padding: 0;
+        }
+        .col-sm-3{
+            padding: 0;
+            margin: 0;
+        }
+        .container .header{
+            width: 62.5%;
+            height: 2.5rem;
+            line-height: 2.5rem;
+            margin: 0 18.75%;
+            padding: 0;
+        }
+        .header span{
+            font-family: 微软雅黑;
+            color: rgb(41,176,120);
+            font-size: 0.875rem;
+        }
+        .header img{
+            height: 2rem;
+            float: right;
+            margin: 0.25rem;
+        }
+        .header img:after{
+            clear: both;
+            height: 0;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-inverse{
+            background-color: rgb(41,176,120);
+            border: 0;
+            border-radius: 0;
+            margin: 0;
+            /*height: 100px;*/
+        }
+        .navbar-inverse .container-fluid{
+            padding: 0 18.75%;
+        }
+        .navbar-inverse .container-fluid .navbar-right li a{
+            color: white;
+            font-family: 微软雅黑;
+            font-size: 1rem;
+        }
+        .navbar-right li a:hover{
+            padding-bottom: 10px;
+            border-bottom: 5px solid white;
+        }
+        .feature{
+            text-align: center;
+            padding: 0 1.8rem;
+            margin-top: 4rem;
+        }
+        .feature img{
+            height: 3.6rem;
+        }
+        .process{
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .circle_big{
+            width: 4.4rem;
+            height: 4.4rem;
+            border-radius: 100%;
+            border: 1px solid lightgray;
+            box-shadow: 0 2px 1px lightgray;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+        }
+        .circle_big span{
+            line-height: 4.4rem;
+        }
+        p.step{
+            font-size: 0.875rem;
+            margin: 2rem 2rem 2rem 5rem;
+            line-height: 2rem;
+        }
+        .circle_big ~ img{
+            width: 2rem;
+            position: absolute;
+            right: 0.5rem;
+            top: 1rem;
+        }
+        .student{
+            display: inline-block;
+            /*width: 13rem;
+            height: 19.4rem;*/
+            background-color: white;
+            border: 1px solid lightgray;
+            border-radius: .4rem;
+            text-align: center;
+            padding: 2rem;
+            margin: .6rem;
+            box-shadow: 0 2px 2px lightgray;
+        }
+        .student img{
+            width: 6.8rem;
+        }
+        .partner{
+            background-color: white;
+            text-align: center;
+            box-shadow: 1px 1px 4px lightgrey;
+            font-size: 0;
+        }
+        .company{
+            display: inline-block;
+            width: 20%;
+            height: 11.25rem;
+            background-color: white;
+            position: relative;
+        }
+        .company:hover{
+            box-shadow: 0 0 1rem lightgrey;
+            z-index: 1;
+        }
+        .company img{
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left:0;
+            bottom: 0;
+            right: 0;
+        }
+        .link{
+            width: 100%;
+            height: 8.5rem;
+            padding: 0 18.75%;
+            background-color: white;
+            text-align: center;
+        }
+        .link h1{
+            padding: 1rem 0;
+        }
+        ul.links{
+            width: 100%;
+            height: 2rem;
+            list-style: disc inside;
+            margin-bottom: 1px;
+            padding: 0;
+        }
+        li.goto{
+            width: 10%;
+            margin-right: 0;
+            color: gray;
+            text-align: left;
+            float: left;
+            line-height: 2rem;
+        }
+        .link ul.links a{
+            font-family: 微软雅黑;
+            font-size: 0.875rem;
+            color: gray;
+            text-decoration: none;
+        }
+        li.goto:hover{
+            border-bottom: 1px solid rgb(41,176,120);
+        }
+        .bottom_nav{
+            width: 100%;
+            height: 10.5rem;
+            background-color: rgb(41,176,120);
+            padding: 0 18.75%;
+            position: relative;
+            border-top: 1px solid rgb(50,192,134);
+            border-bottom: 1px solid rgb(50,192,134);
+        }
+        .bottom_nav span{
+            font-family: 微软雅黑;
+            color: white;
+            font-size: 0.875rem;
+            text-align: left;
+            line-height: 2.5rem;
+            padding: .2rem 0;
+            position: relative;
+            top: 1.6rem;
+        }
+        .bottom_nav span:first-child{
+            font-size: 1rem;
+        }
+        .bottom_nav a:hover{
+            border-bottom: 1px solid white;
+        }
+        .nav_middle{
+            position: absolute;
+            left: 40%;
+            top: 0;
+        }
+        .nav_middle span{
+            margin-right: 2.5rem;
+        }
+        .bottom_nav img{
+            height: 6rem;
+            position: absolute;
+            right: 22%;
+            top: 3.6rem;
+        }
+        .bottom_nav img + span{
+            font-size: 1rem;
+            position: absolute;
+            right: 22%;
+            top: 1rem;
+        }
+        .footer{
+            width: 100%;
+            height: 2rem;
+            margin: 0;
+            background-color: rgb(41,176,120);
+        }
+        p.copyright{
+            color: white;
+            font-size: 0.75rem;
+            text-align: center;
+            line-height: 2rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<!--以下为页头-->
+<div class="container">
+    <div class="header">
+        <span>客服热线：010-594-78634</span>
+        <a href=""><img src="img_task7/weixin.jpg" /></a>
+        <a href=""><img src="img_task7/qq.jpg" /></a>
+        <a href=""><img src="img_task7/weibo.jpg" /></a>
+    </div>
+</div>
+<!--以下为导航栏-->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">职业</a></li>
+            <li><a href="#">推荐</a></li>
+            <li><a href="#">关于</a></li>
+        </ul>
+    </div>
+</nav>
+<!--以下为轮播图-->
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="img_task7/banner_01.jpg" alt="banner1" />
+        </div>
+        <div class="item">
+            <img src="img_task7/banner_02.jpg" alt="banner2" />
+        </div>
+        <div class="item">
+            <img src="img_task7/banner_03.jpg" alt="banner3" />
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">next</span>
+    </a>
+</div>
+<!--以下为学习特点-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="feature">
+                <img src="img_task7/fea_01.jpg" alt="" />
+                <h1>高效</h1>
+                <p>将五到七年的成长时间，缩短到一年到三年。</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="feature">
+                <img src="img_task7/fea_01.jpg" alt="" />
+                <h1>高效</h1>
+                <p>将五到七年的成长时间，缩短到一年到三年。</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="feature">
+                <img src="img_task7/fea_01.jpg" alt="" />
+                <h1>高效</h1>
+                <p>将五到七年的成长时间，缩短到一年到三年。</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="feature">
+                <img src="img_task7/fea_01.jpg" alt="" />
+                <h1>高效</h1>
+                <p>将五到七年的成长时间，缩短到一年到三年。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--以下为学习方式-->
+<h1>如何学习</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+                <img src="img_task7/step.jpg" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+                <img src="img_task7/step.jpg" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+                <img src="img_task7/step.jpg" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+                <img src="img_task7/step.jpg" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+                <img src="img_task7/step.jpg" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+                <img src="img_task7/step.jpg" />
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="process">
+                <div class="circle_big">
+                    <span>1</span>
+                </div>
+                <p class="step">匹配你现在的个人情况寻找适合自己的岗位</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--以下为优秀学员-->
+<h1>优秀学员展示</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="student">
+                <img src="img_task7/profile_01.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="student">
+                <img src="img_task7/profile_02.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="student">
+                <img src="img_task7/profile_03.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="student">
+                <img src="img_task7/profile_04.jpg" />
+                <h1>技术顾问：罗大佑</h1>
+                <p>百度技术总监：互联网基础服务领域，从事虚拟主机、云服务器、域名。曾任新网高级技术经理，负责技术研发、团队管理与建设</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--以下为合作企业-->
+<h1>战略合作企业</h1>
+<div class="container">
+    <div class="row">
+        <div class="partner">
+            <a href="">
+                <div class="company">
+                    <img class="img-responsive" src="img_task10/logo_1.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="img-responsive" src="img_task10/logo_2.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="img-responsive" src="img_task10/logo_3.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="img-responsive" src="img_task10/logo_4.jpg" />
+                </div>
+            </a>
+            <a href="">
+                <div class="company">
+                    <img class="img-responsive" src="img_task10/logo_5.jpg" />
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--以下为友情链接-->
+<div class="link">
+    <h1>友情链接</h1>
+    <ul class="links">
+        <li class="goto"><a href="">手机软件</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+        <li class="goto"><a href="">手机软件</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+    </ul>
+    <ul class="links">
+        <li class="goto"><a href="">手机软件</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+        <li class="goto"><a href="">手机软件</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+        <li class="goto"><a href="">教师招聘</a></li>
+        <li class="goto"><a href="">找工作</a></li>
+    </ul>
+</div>
+<!--以下为底部导航-->
+<div class="bottom_nav">
+    <span>技能树——改变你我</span><br>
+    <span>&nbsp</span><br>
+    <span><a href="">关于我们</a></span>
+    <span>|</span>
+    <span><a href="">联系我们</a></span>
+    <span>|</span>
+    <span><a href="task7-2.html">合作企业</a></span>
+    <div class="nav_middle">
+        <span>旗下网站</span><br>
+        <span><a href="">草船云孵化器</a></span>
+        <span><a href="">最强IT特训营</a></span><br>
+        <span><a href="">葡萄藤轻游戏</a></span>
+        <span><a href="">桌游精灵</a></span>
+    </div>
+    <img src="img_task7/qr_code.jpg" />
+    <span>微信公众平台</span>
+</div>
+<!--以下为页脚-->
+<div class="footer">
+    <p class="copyright">Copyright &copy; 2015技能树 www.jnshu.com  All Rights Reserved | 京ICP备13005880号</p>
+</div>
+</body>
+</html>
