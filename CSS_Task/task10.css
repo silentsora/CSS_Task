@@ -33,6 +33,11 @@ p{
 }
 a{
     color: white;
+}
+a:hover{
+    text-decoration: none;
+}
+a:focus{
     text-decoration: none;
 }
 .container{
@@ -83,19 +88,37 @@ a{
     border: 0;
     border-radius: 0;
     margin: 0;
-    /*height: 100px;*/
+    padding: 0;
 }
 .navbar-inverse .container-fluid{
     padding: 0 18.75%;
+}
+.navbar-inverse .container-fluid .navbar-right li{
+    padding: 0;
 }
 .navbar-inverse .container-fluid .navbar-right li a{
     color: white;
     font-family: 微软雅黑;
     font-size: 1rem;
+    border-bottom: 3px solid rgb(41,176,120);
 }
-.navbar-right li a:hover{
-    padding-bottom: 10px;
-    border-bottom: 5px solid white;
+.navbar-inverse .container-fluid .navbar-right li a:hover{
+    border-bottom-color: white;
+}
+.navbar-inverse .navbar-toggle{
+    border-color: white;
+}
+.navbar-inverse .navbar-toggle:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+.navbar-inverse .navbar-toggle:focus{
+    background-color: rgba(255,255,255,0.3);
+}
+.navbar-inverse .collapsing{
+    border-top-color: white;
+}
+.navbar-inverse .in{
+    border-top-color: white;
 }
 /*---------------------------------*/
 img.qrcode{
@@ -123,6 +146,11 @@ span a:hover{
     margin: 0;
     background-color: rgb(41,176,120);
 }
+@media (min-width: 768px){
+    .footer{
+        height: 2rem;
+    }
+}
 p.copyright{
     color: white;
     font-size: 0.75rem;
@@ -130,7 +158,7 @@ p.copyright{
     line-height: 2rem;
     margin: 0;
 }
-@media (min-width: 768px){
+@media (min-width: 768px) and (max-width: 991px){
     .row{
         width: 90%;
         margin: 0 5%;
@@ -142,15 +170,12 @@ p.copyright{
     .navbar-inverse .container-fluid{
         padding: 0 5%;
     }
-    .partner{
+    .container .partner{
         width: 90%;
         margin: 0 5%;
     }
-    .footer{
-        height: 2rem;
-    }
 }
-@media (min-width: 992px) and (max-width: 1200px), (max-width: 480px){
+@media (min-width: 992px) and (max-width: 1400px), (max-width: 479px){
     .row{
         width: 80%;
         margin: 0 10%;
@@ -162,7 +187,7 @@ p.copyright{
     .navbar-inverse .container-fluid{
         padding: 0 10%;
     }
-    .partner{
+    .container .partner{
         width: 80%;
         margin: 0 10%;
     }

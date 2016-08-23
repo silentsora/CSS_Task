@@ -135,13 +135,18 @@
         }
         ul.link li a{
             color: gray;!important;
+            padding-bottom: 3px;
+            border-bottom: 1px solid white;
         }
-        @media (max-width: 768px){
+        ul.link li a:hover{
+            border-bottom-color: rgb(41,176,120);
+        }
+        @media (max-width: 767px){
             ul.link li{
                 width: 20%;
             }
         }
-        @media (max-width: 480px){
+        @media (max-width: 479px){
             ul.link li{
                 width: 50%;
             }
@@ -161,12 +166,21 @@
 <!--以下为导航栏-->
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">首页</a></li>
-            <li><a href="#">职业</a></li>
-            <li><a href="#">推荐</a></li>
-            <li><a href="#">关于</a></li>
-        </ul>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navTop">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navTop">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">职业</a></li>
+                <li><a href="#">推荐</a></li>
+                <li><a href="#">关于</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 <!--以下为轮播图-->
@@ -525,7 +539,7 @@
             <span>&nbsp|&nbsp</span>
             <span><a href="">联系我们</a></span>
             <span>&nbsp|&nbsp</span>
-            <span><a href="">合作企业</a></span>
+            <span><a href="task10-2.html">合作企业</a></span>
         </div>
         <div class="col-sm-4">
             <span>旗下网站</span><br>
