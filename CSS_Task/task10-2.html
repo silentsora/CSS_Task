@@ -16,15 +16,27 @@
             top: 0;
             bottom: 0;
         }
+        .banner{
+            background: url(img_task7/hand.jpg) no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+        .banner img{
+            width: 100%;
+            visibility: hidden;
+        }
         @media (max-width: 767px){
             .container-fluid img{
                 margin: 0;
                 position: absolute;
                 top: 1rem;
             }
-        }
-        .banner img{
-            width: 100%;
+            .banner{
+                background-position-x: 35%;
+            }
+            .banner img{
+                width: 150%;
+            }
         }
         span.path{
             color: rgb(41,176,120);
