@@ -93,6 +93,20 @@ a:focus{
 .navbar-inverse .container-fluid{
     padding: 0 18.75%;
 }
+.container-fluid img{
+    height: 3rem;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+@media (max-width: 767px) {
+    .container-fluid img {
+        margin: 0;
+        position: absolute;
+        top: 0.6rem;
+    }
+}
 .navbar-inverse .container-fluid .navbar-right li{
     padding: 0;
 }
@@ -100,6 +114,7 @@ a:focus{
     color: white;
     font-family: 微软雅黑;
     font-size: 1rem;
+    line-height: 2.5rem;
     border-bottom: 3px solid rgb(41,176,120);
 }
 .navbar-inverse .container-fluid .navbar-right li a:hover{
