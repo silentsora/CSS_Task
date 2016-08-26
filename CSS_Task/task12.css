@@ -99,6 +99,9 @@ body {
 .navbar-inverse button {
   background-color: #1d7ad9;
 }
+ul.nav-pills {
+  float: right;
+}
 ul.nav-pills li {
   background-color: white;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
@@ -299,7 +302,7 @@ select {
   font-size: 0.18rem;
   padding: 0.1rem 0 0.1rem 0.32rem;
 }
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 991px) {
   #boxSize .panel-body .panel-item label + label {
     padding-left: 0.16rem;
   }
@@ -362,12 +365,10 @@ input[type="submit"] {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-.bottomNav .col-sm-5.col-sm-4,
-.bottomNav .col-sm-3 {
+.bottomNav .col-md-4 {
   padding: 0;
 }
 .bottomNav .col-xs-12 {
-  padding-left: 0.2rem;
   padding-bottom: 0.2rem;
 }
 .bottomNav span {
