@@ -1,0 +1,404 @@
+@blue: rgb(29,122,217);
+@micro: 微软雅黑;
+.font(@color,@size){
+    font-family: @micro;
+    color: @color;
+    font-size: @size;
+}
+.absoluteCenter{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+html{
+    font-size: 468.75%;
+}
+@media (min-width: 1400px){
+    html{
+        font-size: 625%;
+    }
+}
+a{
+    text-decoration: none;
+}
+h1{
+    .font(black,0.22rem);
+    line-height: 0.32rem;
+}
+h2{
+    .font(@blue,0.18rem);
+    line-height: 0.32rem;
+    margin: 0;
+}
+body{
+    width: 100%;
+    background-color: rgb(249,249,249);
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.row{
+    width: 100%;
+    margin: 0;
+    padding: 0 5%;
+    position: relative;
+}
+@media (min-width: 768px){
+    .row{
+        padding: 0 10%;
+    }
+}
+@media (min-width: 992px){
+    .row{
+        padding: 0 10%;
+    }
+}
+@media (min-width: 1400px){
+    .row{
+        padding: 0 18.75%;
+    }
+}
+.header{
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    background-color: @blue;
+    margin: 0;
+    span{
+        .font(white,0.14rem);
+    }
+    .login{
+        height: 0.4rem;
+        border-left: 1px solid white;
+        padding: 0 0.1rem;
+        float: right;
+        span{
+        font-size: 0.16rem;
+        }
+    }
+    .register{
+        height: 0.4rem;
+        background-color: white;
+        padding: 0 0.3rem;
+        float: right;
+        span{
+            .font(black, 0.16rem);
+        }
+    }
+}
+.navbar-inverse{
+    background-color: rgb(249,249,249);
+    button{
+        background-color: @blue;
+    }
+}
+ul.nav-pills{
+    li{
+        background-color: white;
+        box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+        margin: 0.2rem 0 0.2rem 0.4rem;
+        a{
+            .font(black,0.14rem);
+        }
+    }
+    @media (max-width: 767px){
+        li{
+            margin-left: 0.2rem;
+        }
+    }
+}
+#content{       /*主体内容*/
+    background-color: white;
+    position: relative;
+}
+/*以下是进度条样式*/
+.long_line{
+    width: 100%;
+    height: 5px;
+    border-radius: 2px;
+    background-color: lightgray;
+    float: right;
+    margin: 0.5rem 0;
+}
+@media (min-width: 768px){
+    .long_line{
+        width: 80%;
+    }
+}
+@media (min-width: 992px){
+    .long_line{
+        width: 60%;
+    }
+}
+.line{
+    width: 25%;
+    height: 5px;
+    border-radius: 2px;
+    background-color: lightgray;
+    text-align: center;
+    float: right;
+    position: relative;
+    p{
+        font-size: 0.18rem;
+        color: lightgray;
+        margin-top: 0.32rem;
+    }
+}
+.line:last-child{
+    background-color: orange;
+    p{
+        color: orange;
+    }
+    .circle{
+        width: 0.25rem;
+        height: 0.25rem;
+        background-color: orange;
+    }
+    span{
+        line-height: 0.25rem;
+        font-size: 0.16rem;
+    }
+}
+.circle{
+    width: 0.2rem;
+    height: 0.2rem;
+    margin: auto;
+    border-radius: 100%;
+    background-color: lightgray;
+    text-align: center;
+    font-size: 0;
+    .absoluteCenter;
+    span{
+        line-height: 0.2rem;
+        font-size: 0.14rem;
+    }
+}
+/*以下是表单样式*/
+.stick{
+    display: inline-block;
+    content:"";
+    margin: 0.05rem 0.05rem 0.05rem 0;
+    width: 0.04rem;
+    height: 0.22rem;
+    border-radius: 2px;
+    background-color: @blue;
+}
+form{
+    position: relative;
+    /*top: 1.2rem;*/
+    clear: left;
+    h1:before {
+        .stick;
+        float: left;
+    }
+}
+.panel-group{
+    .panel{
+        margin-bottom: 0;
+        border-top: 0;
+        border-bottom: 0;
+        border-radius: 0;
+        .panel-heading{
+            border-radius: 0;
+            border-top: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+        }
+    }
+}
+input[type="radio"]{
+    visibility: hidden;
+    position: absolute;
+}
+input + label{
+    .font(gray,0.18rem);
+    margin-left: 0.5rem;
+    padding: 0.16rem 0;
+    background: url(img_task9/check.jpg) no-repeat left center;
+    background-size: 0.2rem;
+}
+input[type="radio"]:checked + label{
+    background: url(img_task9/checked.jpg) no-repeat left center;
+    background-size: 0.2rem;
+}
+select{
+    .font(gray,0.14rem);
+    width: 1.3rem;
+    height: 0.48rem;
+    margin: auto 0;
+    padding: 0 0.1rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0.1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(img_task9/select.jpg) no-repeat right;
+    background-position-x: 0.9rem;
+}
+#boxType{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    .panel-heading{
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        h2:before{
+            content: url(img_task9/form_01.jpg);
+            float: left;
+        }
+    }
+    .panel-item{
+        position: relative;
+        padding: 0.32rem 0;
+        overflow: hidden;
+        @media (max-width: 767px){      /*手机上一项占一行*/
+            label{
+                float: left;
+                clear: left;
+            }
+        }
+    }
+}
+#boxSize{
+    .panel-heading{
+        h2:before{
+            content: url(img_task9/form_02.jpg);
+            float: left;
+        }
+    }
+    .panel-body{
+        position: relative;
+        padding: 0.16rem 0;
+        .panel-item{
+            margin: 0.16rem 0;
+            label + label{          /*输入框标签*/
+                .font(gray,0.18rem);
+                padding: 0.1rem 0 0.1rem 0.32rem;
+            }
+            @media (max-width: 991px){
+                label + label{
+                    padding-left: 0.16rem;
+                }
+            }
+            @media (max-width: 767px){      /*手机上一项占一行*/
+                label{
+                    float: left;
+                    clear: left;
+                }
+            }
+            input[type="number"]{
+                width: 0.7rem;
+                height: 0.28rem;
+                margin: 0 0.08rem;
+            }
+        }
+    }
+}
+#boxMaterial{
+    .panel-heading{
+        h2:before{
+            content: url(img_task9/form_03.jpg);
+            float: left;
+        }
+    }
+    .panel-item{
+        overflow: hidden;
+        position: relative;
+        padding: 0.32rem 1.4rem 0.32rem 0;
+    }
+    @media (max-width: 991px){
+        label{
+            float: left;
+        }
+    }
+    @media (max-width: 767px){      /*手机上一项占一行*/
+        label{
+            float: left;
+            clear: left;
+        }
+    }
+}
+#submit{
+    text-align: center;
+    padding: 1rem 0 0.5rem;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+input[type="submit"]{
+    width: 1.8rem;
+    height: 0.45rem;
+    background-color: rgb(225,80,83);
+    .font(white,0.24rem);
+    border: 0;
+    border-radius: 5px;
+}
+/*下面是下方导航样式*/
+.bottomNav{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    .col-sm-5.col-sm-4,.col-sm-3{
+        padding: 0;
+    }
+    .col-xs-12{
+        padding-left: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+    span{
+        .font(gray,0.18rem);
+        line-height: 0.32rem;
+        margin: 0;
+        padding: 0;
+        float: left;
+    }
+    a{
+        .font(gray,0.14rem);
+        line-height: 0.32rem;
+        margin: 0;
+        padding-left: 0;
+    }
+    @media (min-width: 992px){
+        a{
+            margin-bottom: 0.16rem;
+        }
+    }
+    a:hover{
+        color: @blue;
+        text-decoration: none;
+    }
+    .contact{
+        p {
+            .font(gray, 0.14rem);
+            line-height: 0.32rem;
+            margin: 0;
+        }
+    }
+    @media (min-width: 768px){
+        .contact{
+            float: right;
+            padding-right: 0.16rem;
+        }
+    }
+    img{
+        width: 1rem;
+        float: right;
+    }
+}
+.footer{
+    background-color:@blue;
+    text-align: center;
+    span{
+        .font(white,0.12rem);
+        margin-right: 0.2rem;
+        line-height: 0.32rem;
+    }
+    @media (max-width: 767px){
+        span{
+            float: left;
+        }
+    }
+}
