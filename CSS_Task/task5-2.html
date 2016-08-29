@@ -19,13 +19,13 @@
         p{
             margin: 0;
             font-family: 微软雅黑;
-            font-size: 1.2rem;
+            font-size: 1.75rem;
             color: gray;
         }
         span{
             font-family: 微软雅黑;
             color: black;
-            font-size: 1.2rem;
+            font-size: 1.75rem;
         }
         .header{
             width: 100%;
@@ -39,24 +39,28 @@
         .filter{
             width: 100%;
             height: 12vw;
-            /*display: box;*/
             display: -webkit-box;
+            display: -webkit-flex;
             display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
             background-color: white;
             position: fixed;
             top: 12.5vw;
             left: 0;
         }
         .filter1{
-            /*box-flex: 1;*/
+            flex: 1;
+            -webkit-flex: 1;
             -webkit-box-flex: 1;
             -moz-box-flex: 1;
+            -ms-flex: 1;
             border-bottom: 1px solid lightgray;
             text-align: center;
             line-height: 6vw;
         }
         .filter2{
-            /*box-flex: 1;*/
+            flex: 1;
             -webkit-box-flex: 1;
             -moz-box-flex: 1;
             -webkit-box-pack:center;
@@ -68,7 +72,7 @@
             line-height: 6vw;
         }
         .filter3{
-            /*box-flex: 1;*/
+            flex: 1;
             -webkit-box-flex: 1;
             -moz-box-flex: 1;
             -webkit-box-pack:center;
@@ -120,7 +124,7 @@
             border-bottom-left-radius: 5px;
             margin: 1vw 0;
             font-family: 微软雅黑;
-            font-size: 1.5rem;
+            font-size: 2.125rem;
             color: white;
             position: absolute;
             left: 30%;
@@ -134,7 +138,7 @@
             border-bottom-right-radius: 5px;
             margin: 1vw 0;
             font-family: 微软雅黑;
-            font-size: 1.5rem;
+            font-size: 2.125rem;
             color: white;
             position: absolute;
             left: 50%;
@@ -148,13 +152,13 @@
             z-index: 1;
             background-color: white;
             border-radius: 5px;
-            /*-webkit-animation-fill-mode: forwards;*/
             -webkit-animation: animation 2s;
             -webkit-animation-iteration-count: 1;
             left: 50%;
             text-align: center;
         }
         p.slider{
+            font-size: 2.125rem;
             line-height: 10.5vw;
             color: rgb(95,192,205);
         }
@@ -189,6 +193,7 @@
             margin:0 8%;
         }
         span.pay{
+            font-size: 1.875rem;
             color: red;
             position: relative;
             float: right;
@@ -218,13 +223,13 @@
             right: 3%;
         }
         img.home{
-            width: 6%;
+            width: 7%;
             position: absolute;
             left: 27%;
             top: 2vw;
         }
         img.head{
-            width: 6%;
+            width: 7%;
             position: absolute;
             left: 67%;
             top: 2vw;
@@ -246,16 +251,22 @@
             left: 44%;
         }
         span.home{
+            font-size: 1.25rem;
+            width: 7%;
+            text-align: center;
             color: rgb(95,192,205);
             position: absolute;
             left: 27%;
-            top: 8vw;
+            top: 9vw;
         }
         span.head{
+            font-size: 1.25rem;
+            width: 7%;
+            text-align: center;
             color: grey;
             position: absolute;
             left: 67%;
-            top: 8vw;
+            top: 9vw;
         }
     </style>
 </head>
@@ -266,7 +277,7 @@
         </div>
         <input class="select1" type="button" value="找雇主" />
         <input class="select2" type="button" value="找护工" />
-        <img src="img_task5/position.jpg" class="position" />
+        <a href=""><img src="img_task5/position.jpg" class="position" /></a>
     </div>
 
     <div class="filter">
@@ -284,7 +295,7 @@
         <div class="table-row">
             <div class="content">
                 <p class="servicedate">服务日期</p>
-                <span class="date">2.15-7-5 至 2015-7-12</span>
+                <span class="date">2015-7-5 至 2015-7-12</span>
                 <span class="pay">25元/小时
                     <a href="task5-1.html">
                         <img class="jump" src="img_task5/jump.jpg"/>
@@ -296,7 +307,7 @@
         <div class="table-row">
             <div class="content">
                 <p class="servicedate">服务日期</p>
-                <span class="date">2.15-7-5 至 2015-7-12</span>
+                <span class="date">2015-7-5 至 2015-7-12</span>
                 <span class="pay">35元/小时
                     <a href="task5-1.html">
                         <img class="jump" src="img_task5/jump.jpg"/>
@@ -308,7 +319,7 @@
         <div class="table-row">
             <div class="content">
                 <p class="servicedate">服务日期</p>
-                <span class="date">2.15-7-5 至 2015-7-12</span>
+                <span class="date">2015-7-5 至 2015-7-12</span>
                 <span class="pay">45元/小时
                     <a href="task5-1.html">
                         <img class="jump" src="img_task5/jump.jpg"/>
@@ -320,7 +331,7 @@
         <div class="table-row">
             <div class="content">
                 <p class="servicedate">服务日期</p>
-                <span class="date">2.15-7-5 至 2015-7-12</span>
+                <span class="date">2015-7-5 至 2015-7-12</span>
                 <span class="pay">45元/小时
                     <a href="task5-1.html">
                         <img class="jump" src="img_task5/jump.jpg"/>
@@ -332,7 +343,7 @@
         <div class="table-row">
             <div class="content">
                 <p class="servicedate">服务日期</p>
-                <span class="date">2.15-7-5 至 2015-7-12</span>
+                <span class="date">2015-7-5 至 2015-7-12</span>
                 <span class="pay">45元/小时
                     <a href="task5-1.html">
                         <img class="jump" src="img_task5/jump.jpg"/>
@@ -345,11 +356,17 @@
     </div>
     <div class="footer">
         <div class="circle"></div>
-        <img class="home" src="img_task5/home.jpg" />
-        <img class="write" src="img_task5/write.jpg" />
-        <img class="head" src="img_task5/head.jpg" />
-        <span class="home">首页</span>
-        <span class="head">我的</span>
+        <a href="">
+            <img class="home" src="img_task5/home.jpg" />
+            <span class="home">首 页</span>
+        </a>
+        <a href="">
+            <img class="head" src="img_task5/head.jpg" />
+            <span class="head">我 的</span>
+        </a>
+        <a href="">
+            <img class="write" src="img_task5/write.jpg" />
+        </a>
     </div>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Task6-vote</title>
+    <script src="jquery/jquery-3.1.0.min.js" type="text/javascript" ></script>
     <style type="text/css">
         html{
             font-size: 62.5%;
@@ -95,7 +96,6 @@
             left: 5%;
         }
         p.notice{
-            width: 100%;
             font-size: 1.1rem;
             color: white;
             position: absolute;
@@ -163,7 +163,7 @@
             height: 1.5rem;
             background-image: url(img_task6/icons.png);
             background-size: auto 100%;
-            background-position-x: 33.3%;
+            background-position: 33.3% 0;
             position: absolute;
             bottom: -0.8rem;
             left: 36%;
@@ -174,7 +174,7 @@
             height: 1.5rem;
             background-image: url(img_task6/icons.png);
             background-size: auto 100%;
-            background-position-x: 66.6%;
+            background-position: 66.6% 0;
             position: absolute;
             bottom: -0.8rem;
             right: 36%;
@@ -185,7 +185,7 @@
             height: 1.5rem;
             background-image: url(img_task6/icons.png);
             background-size: auto 100%;
-            background-position-x: 100%;
+            background-position: 100% 0;
             position: absolute;
             bottom: -0.8rem;
             right: 20%;
@@ -221,13 +221,10 @@
         input[type="radio"] {
             position: absolute;
             visibility: hidden;
-            /*top: -9999px;
-            left: -9999px;*/
         }
     </style>
 </head>
 <body>
-<form action="task6-2.html" method="get">
     <div class="header">
         <span class="title">投票</span>
         <a href="">
@@ -239,10 +236,12 @@
     </div>
     <div class="audio">
         <p class="vote">发言讨论结束，大家请投票</p>
-        <a href="audio_task6/001.mp3">
-            <input class="player" type="image" src="img_task6/player.png" alt=""/>
-        </a>
+        <input  onclick="playAudio()" class="player" type="image" src="img_task6/player.png" alt=""/>
+        <audio id="myAudio">
+            <source src="audio_task6/001.mp3" type="audio/mpeg">
+        </audio>
     </div>
+    <form action="task6-2.html" method="get">
     <div class="content">
         <div class="delta"></div>
         <p class="notice">点击得票数最多人的头像</p>
@@ -396,5 +395,20 @@
         <input class="kill" type="submit" value="投死"/>
     </div>
     </form>
+    <script>
+        var a=document.getElementById("myAudio");
+        var x=true;
+        function playAudio(){
+            if(x){
+                a.play();
+                x=false;
+            }
+            else {
+                a.pause();
+                x = true;
+            }
+            console.log(x);
+        }
+    </script>
 </body>
 </html>
