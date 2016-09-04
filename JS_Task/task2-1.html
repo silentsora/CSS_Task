@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS-task2-1</title>
+    <link href="task2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <span>参数设置</span>
+    <a href=""><img class="icon1" src="img-js-task2/back.png"></a>
+    <a href=""><img class="icon2" src="img-js-task2/help.png"></a>
+</div>
+<div class="container">
+    <div class="main">
+        <div class="title">
+            <span>玩家配比</span>
+        </div>
+        <div id="content">
+            <span></span>
+        </div>
+        <input type="button" value="点击设置" onclick="distribute()">
+    </div>
+</div>
+<div class="keyword">
+    <input type="text" placeholder="水民词组">
+    <input type="text" placeholder="杀手词组">
+</div>
+<div class="players">
+    <p>
+        玩家人数
+        <input type="text" id="number" onblur="inputNum()">
+        人
+    </p>
+    <label for="players"></label>
+    <input id="players" type="range" min="4" max="24" oninput="changeNum()" onpropertychange="changeNum()">
+    <img class="minus" src="img-js-task2/minus.png" onclick="minus()">
+    <img class="plus" src="img-js-task2/plus.png" onclick="plus()">
+</div>
+<button>
+    去发牌
+</button>
+<script src="task2.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
