@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS-task3-1</title>
+    <link href="task2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <span>查看身份</span>
+    <a href=""><img class="icon1" src="img-js-task2/back.png"></a>
+    <a href="task2-1.html"><img class="icon2" src="img-js-task2/close.png"></a>
+</div>
+<div class="content2">
+    <div class="card">
+        <div id="circleNum">1</div>
+        <img class="open" id="char" src="img-js-task2/open.png">
+        <p id="charType"></p>
+    </div>
+    <button id="submit" style="width: 84%;margin-left: 8%;" onclick="openCard()">查看1号身份</button>
+</div>
+<script>
+    temp=localStorage;      //读取存储数据
+    console.log(temp.jobs);
+    var job=JSON.parse(temp.jobs);  //以JSON规范还原对象类型
+    console.log(job);
+    var nowNum=1;   //目前的序号
+    var page=job.length*2;  //页数
+    function openCard() {
+        console.log(nowNum);
+        if(nowNum>job.length){      //到达尾页
+                location.href="task4-1.html";
+                return;
+            }
+        if (page % 2) {     //奇数页
+            document.getElementById("circleNum").innerHTML=nowNum;
+            document.getElementById("submit").innerHTML = "查看"+(nowNum)+"号身份";
+            document.getElementById("char").src = "img-js-task2/open.png";
+            document.getElementById("charType").innerHTML = "";
+            page--;
+        }
+        else{       //偶数页
+            if(!(page-2)){
+                document.getElementById("submit").innerHTML = "查看法官日记";
+                nowNum++;
+            }
+            else{
+                document.getElementById("submit").innerHTML = "隐藏并传递给" + (++nowNum) + "号";
+            }
+            document.getElementById("char").src = "img-js-task2/char.png";
+            document.getElementById("charType").innerHTML = "角色:" + job[nowNum - 2];
+            page--;
+        }
+    }
+</script>
+</body>
+</html>

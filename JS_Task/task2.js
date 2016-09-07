@@ -19,6 +19,7 @@ var doctor=0;
 var police=0;
 var sniper=0;
 function distribute(){
+    job.length=0;       //清空数组
     document.getElementById("content").innerHTML="";    //清空上次分配结果
     for(var i=0;i<playerNum;i++){
         var randomJob=Math.random()*4;
@@ -84,7 +85,6 @@ function distribute(){
                 else{odd++;}
                 player.appendChild(Square);
             }
-            job.length=0;       //清空数组
         }
     }
 }
@@ -133,4 +133,19 @@ function minus(){
 function plus(){
     document.getElementById("players").value++;
     changeNum();
+}
+
+function next(){        //跳转页面
+    if(!job.length){        //未分配角色
+        alert("请先分配角色");
+    }
+    else{
+        localStorage.removeItem("action");      //清除行动阶段记录
+        localStorage.removeItem("whoKill")      //清除杀人者记录
+        localStorage.removeItem("whoBeKill")    //清除被杀者记录
+        var temp=localStorage;      //保存数据
+        temp.setItem('jobs',JSON.stringify(job)); //转换成JSON规范的字符串
+        console.log(temp.jobs);
+        location.href="task3-1.html";       //跳转
+    }
 }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS-task4-1</title>
+    <link href="task2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <span id="title">法官日记</span>
+    <a href="task3-1.html"><img class="icon1" src="img-js-task2/back.png"></a>
+    <a href="task2-1.html"><img class="icon2" src="img-js-task2/close.png"></a>
+</div>
+<div class="content2" id="cardList"></div>
+<div class="footer">
+    <button id="submit" onclick="start()">开始游戏</button>
+</div>
+<script>
+    temp=localStorage;
+    job=JSON.parse(temp.getItem("jobs"));
+    console.log(job);
+    for(var i=0;i<job.length;i++){
+        var card=document.createElement("div");
+        card.style.cssText="width:20%;height:20vw;max-height:128px;border:0.06rem solid white;float:left;margin:0.3rem calc(6.6% - 0.06rem);text-align:center;background-color:rgb(245,201,123);position:relative;";
+        var number=document.createElement("span");
+        number.style.cssText="width:100%;height:0.36rem;line-height:0.36rem;background-color:rgb(131,176,154);text-align:center;font-size:0.28rem;color:white;position:absolute;left:0;bottom:0;";
+        var char=document.createElement("span");
+        char.style.cssText="font-size:0.32rem;position:relative;top:0.3rem;";
+        var father=document.getElementById("cardList");
+        father.appendChild(card);
+        char.innerHTML=job[i];
+        card.appendChild(char);
+        number.innerHTML=(i+1)+"号";
+        card.appendChild(number);
+        console.log(job[i],char);
+        //以下创建radio元素
+        var select=document.createElement("input");
+        select.style.display="none";
+        select.type="radio";
+        select.name="select";
+        select.id="option"+i;
+        card.id="card"+i;
+        var label=document.createElement("label");
+        label.htmlFor="option"+i;
+        father.appendChild(select);
+        father.appendChild(label);
+        label.appendChild(card);
+        document.getElementById("option"+i).onclick=selectHim;  //给radio添加点击触发事件
+    }
+    var action=new Array;       //action为行动阶段参数
+    if(temp.getItem("action")){     //如果有行动阶段参数，则读取，没有意味着目前是法官查看身份阶段
+        action=JSON.parse(temp.getItem("action"));
+    }
+    console.log(action,action.length,action[action.length-1]);
+    function start(){
+        if(action.length==0){       //未进入行动阶段=接下来开始游戏
+            location.href="task4-2.html";
+        }
+        else{       //已经进入行动阶段=接下来显示杀人报告
+            location.href="task4-3.html";
+        }
+    }
+    if(action.length!=0){       //行动阶段
+        if(action[action.length-1]=="killer"){
+            document.getElementById("title").innerHTML="杀手杀人";
+            document.getElementById("submit").innerHTML="确定";
+        }
+        if(action[action.length-1]=="police"){
+            document.getElementById("title").innerHTML="警察验人";
+            document.getElementById("submit").innerHTML="确定";
+        }
+        if(action[action.length-1]=="sniper"){
+            document.getElementById("title").innerHTML="狙击狙人";
+            document.getElementById("submit").innerHTML="确定";
+        }
+        if(action[action.length-1]=="doctor"){
+            document.getElementById("title").innerHTML="医生救人";
+            document.getElementById("submit").innerHTML="确定";
+        }
+        if(action[action.length-1]=="people"){
+            document.getElementById("title").innerHTML="投票";
+            document.getElementById("submit").innerHTML="投死";
+        }
+    }
+    if(temp.getItem("whoBeKill")) {     //读取已经被杀的人,禁止再次被选择
+        var whoBeKill = JSON.parse(temp.getItem("whoBeKill"));
+        console.log(whoBeKill);
+        for(var k=0;k<whoBeKill.length;k++){
+            document.getElementById("card"+whoBeKill[k]).style.opacity="0.5";
+            document.getElementById("option"+whoBeKill[k]).disabled=true;
+        }
+    }
+    function selectHim(){       //每次选择radio都将执行该函数
+        if(action.length==0){       //未开始游戏，不能选择杀人
+            return;
+        }
+        console.log("单选框状态：");
+        for(var j=0;j<i;j++){       //点击一次遍历checked状态，当checked时改变卡片样式
+            var checked=new Array();
+            checked[j]=document.getElementById("option"+j);
+            if(checked[j].checked){
+                if(action[action.length-1]=="killer" && job[j]=='杀&emsp;手'){     //杀手不能选择杀手作为杀死对象
+                    checked[j].checked=false;
+                    alert('杀手不能杀死杀手');
+                }
+                else{
+                    document.getElementById("card"+j).style.opacity="0.5";
+                    temp.setItem("checked",j);
+                }
+            }
+            else{
+                if(checked[j].disabled==false){     //不是禁选选项将恢复透明度样式
+                    document.getElementById("card"+j).style.opacity="1";
+                }
+            }
+            console.log(j,checked[j].checked);
+        }
+    }
+</script>
+</body>
+</html>

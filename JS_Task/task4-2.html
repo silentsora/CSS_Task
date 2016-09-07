@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS-task4-2</title>
+    <link href="task2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <span>法官日记</span>
+    <a href="task4-1.html"><img class="icon1" src="img-js-task2/back.png"></a>
+    <a href="task2-1.html"><img class="icon2" src="img-js-task2/close.png"></a>
+</div>
+<div class="content">
+    <div class="first-day">
+        <span>第一天</span>
+    </div>
+    <div class="process">
+        <div class="step" onclick="action('killer')">杀手杀人</div>
+        <div class="step" onclick="action('police')">警察验人</div>
+        <div class="step" onclick="action('sniper')">狙击狙人</div>
+        <div class="step" onclick="action('doctor')">医生救人</div>
+        <div class="blank"></div>
+        <div class="step">亡灵发表遗言</div>
+        <div class="step">玩家依次发言</div>
+        <div class="step">投票</div>
+        <img class="night" src="img-js-task2/night.png">
+        <img class="day" src="img-js-task2/day.png">
+        <div class="line"></div>
+    </div>
+</div>
+<script>
+    function action(job){
+        if(job=='killer'){      //进入杀手杀人阶段
+            var temp=localStorage;
+            var action=new Array;       //action为行动阶段参数
+            action[0]=job;
+            temp.setItem("action",JSON.stringify(action));
+            location.href="task4-1.html";
+        }
+        else{
+            alert('功能尚未开放');
+        }
+    }
+</script>
+</body>
+</html>
