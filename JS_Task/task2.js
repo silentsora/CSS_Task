@@ -140,6 +140,7 @@ function next(){        //跳转页面
         alert("请先分配角色");
     }
     else{
+        localStorage.removeItem("winner");      //清楚胜利者
         localStorage.removeItem("action");      //清除行动阶段记录
         localStorage.removeItem("whoKill")      //清除杀人者记录
         localStorage.removeItem("whoBeKill")    //清除被杀者记录

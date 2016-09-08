@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Task-result</title>
+    <style type="text/css">
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            width: 100%;
+            max-width: 640px;
+            margin: 0;
+            background-color: rgb(240,240,240);
+        }
+        @media only screen and (min-width: 480px){
+            html{
+                font-size: 94%;
+            }
+        }
+        @media only screen and (min-width: 560px){
+            html {
+                font-size: 109%;
+            }
+        }
+        @media only screen and (min-width: 640px){
+            html {
+                font-size: 125%;
+            }
+        }
+        .header{
+            width: 100%;
+            height: 4.5rem;
+            background-color: rgb(41,189,224);
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid white;
+        }
+        .content{
+            width: 100%;
+            background: rgb(41,189,224);
+            text-align: center;
+            margin: 0;
+        }
+        .shell{
+            margin: 0 12%;
+            text-align: left;
+        }
+        .main{
+            position: relative;
+            top: -3rem;
+            text-align: left;
+            margin: 0 12% -2rem 12%;
+        }
+        .report{
+            width: 76%;
+            background-color: white;
+            text-align: left;
+            display: table;
+            position: relative;
+            padding: 0 12%;
+        }
+        .footer{
+            width: 100%;
+            max-width: 640px;
+            height: 6.5rem;
+            background-color: rgba(41,189,224,0.5);
+            position: fixed;
+            bottom: 0;
+        }
+        .bottom{
+            width: 100%;
+            height: 6.5rem;
+            background-color: white;
+            border-top: 1px solid white;
+            position: relative;
+        }
+        img.home{
+            height: 2.2rem;
+            position: absolute;
+            top: 1.15rem;
+            left: 1rem;
+        }
+        img.caution{
+            height: 2.2rem;
+            position: absolute;
+            top: 1.15rem;
+            right: 1rem;
+        }
+        img.victory{
+            height: 10rem;
+            position: relative;
+            top: 1.2rem;
+        }
+        p{
+            font-family: 微软雅黑;
+            color: white;
+            letter-spacing: 0.1rem;
+            font-size: 1.3rem;
+            margin: 0;
+            line-height: 2rem;
+        }
+        p.title{
+            font-size: 1.7rem;
+            line-height: 4.5rem;
+            margin: 0;
+        }
+        p.day{
+            font-family: 微软雅黑;
+            font-size: 2rem;
+            line-height: 3.5rem;
+            color: rgb(41,189,224);
+            position: absolute;
+            left: 5%;
+        }
+        p.time{
+            font-family: 微软雅黑;
+            font-size: 1.4rem;
+            line-height: 3.5rem;
+            color: rgb(41,189,224);
+            position: absolute;
+            right: 5%;
+        }
+        h1{
+            font-family: 黑体;
+            font-size: 2.4rem;
+            color: white;
+        }
+        #win{
+            position:relative;
+            top: -3.7rem;
+        }
+        #good{
+            font-family: 黑体;
+            font-size: 1.6rem;
+            color: rgb(255,200,101);
+            position: relative;
+            top: -3.6rem;
+        }
+        ul{
+            font-family: 微软雅黑;
+            font-size: 1.5rem;
+            position: relative;
+            margin: 5% 0;
+            padding: 0;
+        }
+        li{
+            font-family: 微软雅黑;
+            font-size: 1.4rem;
+            color: darkgrey;
+            list-style-type: none;
+        }
+        ul:after{
+            content: "(这个用时懒得做了)";
+            font-size: 1rem;
+            color: darkgrey;
+            font-family: 微软雅黑;
+            position: absolute;
+            top: 5%;
+            right: 8%;
+        }
+        input{
+            width: 40%;
+            height: 4.5rem;
+            margin: 1rem 0;
+            border: 0;
+            border-radius: 0.5rem;
+            font-family: 微软雅黑;
+            color: white;
+            font-size: 2rem;
+        }
+        input:hover{
+            opacity: 0.7;
+        }
+        input.again{
+            background-color: rgb(246,111,111);
+            position: absolute;
+            left: 5%;
+        }
+        input.upload{
+            background-color: rgb(251,180,53);
+            position: absolute;
+            right: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="task2-1.html">
+            <img class="home" src="img-js-task2/home.png" />
+        </a>
+        <a href="">
+            <img class="caution" src="img-js-task2/atention.png" />
+        </a>
+        <p class="title">游戏结果</p>
+    </div>
+    <div class="content">
+        <img class="victory" src="img-js-task2/victory.png" />
+        <h1 id="win"></h1>
+        <div class="shell">
+            <h2 id="good"></h2>
+        </div>
+        <div class="main">
+            <p id="time"></p>
+            <p id="number1"></p>
+            <p id="number2"></p>
+            <p>卧底词汇：爱新觉罗</p>
+            <p>水民词汇：努尔哈赤</p>
+        </div>
+    </div>
+    <div class="report" id="report"></div>
+    <div class="bottom">
+    </div>
+    <div class="footer">
+        <a href="task2-1.html">
+            <input class="again" type="button" value="再来一局"/>
+        </a>
+        <input class="upload" type="button" value="上传并分享" />
+    </div>
+<script>
+    var winner=localStorage.getItem("winner");
+    var action=JSON.parse(localStorage.getItem("action"));
+    var whoBeKill=JSON.parse(localStorage.getItem("whoBeKill"));
+    var whoKill=JSON.parse(localStorage.getItem("whoKill"));
+    var job=JSON.parse(localStorage.getItem("jobs"));
+    console.log(winner,action,whoBeKill,whoKill,job);
+    var killer=0;
+    var police=0;
+    var doctor=0;
+    var sniper=0;
+    var day=1;
+    var time=JSON.parse(localStorage.getItem("time"));
+    var date=new Date();
+    var timeOver=date.getTime();
+    var timeCost=timeOver-time;
+    var hour=Math.floor(timeCost/(60*60*1000));
+    var minute=Math.floor((timeCost/(60*1000))%60);
+    console.log(time,timeOver,timeCost,hour,minute);
+    for(var i=0;i<job.length;i++){  //统计每个职业的个数
+        switch(job[i]){
+            case "杀&emsp;手":
+                killer++;
+                break;
+            case "警&emsp;察":
+                police++;
+                break;
+            case "医&emsp;生":
+                doctor++;
+                break;
+            case "狙击手":
+                sniper++;
+                break;
+        }
+    }
+    console.log(killer,police,doctor,sniper);
+    var killerPer=killer/job.length*100;  //杀手比例
+    for(var i=0;i<action.length;i++){
+        if(action[i]=="nextDay"){
+            day++;
+        }
+    }
+    console.log(day);
+    if(winner=="people"){
+        document.getElementById("win").innerHTML="平民胜利";
+        document.getElementById("good").innerHTML="本轮游戏共抓出杀手"+killer+"人，共经历了"+day+"天，在杀人游戏中击败了"+killerPer+"%的玩家！";
+    }
+    if(winner=="killer"){
+        document.getElementById("win").innerHTML="卧底胜利";
+        document.getElementById("good").innerHTML="太棒了!你知道么？在捉鬼游戏中只有"+"%的卧底取得游戏最终的胜利哦！";
+    }
+    document.getElementById("time").innerHTML="本次游戏共计用时"+hour+"小时"+minute+"分钟"
+    document.getElementById("number1").innerHTML="杀&emsp;手"+killer+"人&emsp;警&emsp;察"+police+"人&emsp;";
+    document.getElementById("number2").innerHTML="狙击手"+sniper+"人&emsp;医&emsp;生"+doctor+"人&emsp;";
+    var ul=document.createElement("ul");
+    var li=document.createElement("li");
+    var report=document.getElementById("report");
+    for(var j=1;j<=day;j++){
+        ul=document.createElement("ul");
+        ul.innerHTML="第"+j+"天";
+        report.appendChild(ul);
+        li=document.createElement("li");
+        li.innerHTML="晚上："+whoBeKill[j*2-2]+"号被"+whoKill[j*2-2]+"死，真实身份是"+job[whoBeKill[j*2-2]];
+        ul.appendChild(li);
+        if(whoBeKill[j*2-1]!=undefined && whoKill[j*2-1]!=undefined){
+            li=document.createElement("li");
+            li.innerHTML="白天："+whoBeKill[j*2-1]+"号被"+whoKill[j*2-1]+"死，真实身份是"+job[whoBeKill[j*2-1]];
+            ul.appendChild(li);
+        }
+    }
+</script>
+</body>
+</html>

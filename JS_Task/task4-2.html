@@ -14,13 +14,13 @@
 </div>
 <div class="content">
     <div class="first-day">
-        <span>第一天</span>
+        <span id="day">第 1 天</span>
     </div>
     <div class="process">
-        <div class="step" onclick="action('killer')">杀手杀人</div>
-        <div class="step" onclick="action('police')">警察验人</div>
-        <div class="step" onclick="action('sniper')">狙击狙人</div>
-        <div class="step" onclick="action('doctor')">医生救人</div>
+        <div class="step" onclick="kill('killer')">杀手杀人</div>
+        <div class="step" onclick="kill('police')">警察验人</div>
+        <div class="step" onclick="kill('sniper')">狙击狙人</div>
+        <div class="step" onclick="kill('doctor')">医生救人</div>
         <div class="blank"></div>
         <div class="step">亡灵发表遗言</div>
         <div class="step">玩家依次发言</div>
@@ -31,11 +31,27 @@
     </div>
 </div>
 <script>
-    function action(job){
+    var temp=localStorage;
+    var action=new Array;       //action为行动阶段参数
+    if(temp.getItem("action")) {
+        action = JSON.parse(temp.getItem("action"));
+        console.log(action);
+        var day = 1;
+        for (var i = 0; i < action.length; i++) {
+            if (action[i] == "nextDay") {      //计算目前是第几天
+                day++;
+            }
+        }
+        document.getElementById("day").innerHTML = "第 " + day + " 天";
+    }
+    function kill(job){
         if(job=='killer'){      //进入杀手杀人阶段
-            var temp=localStorage;
-            var action=new Array;       //action为行动阶段参数
-            action[0]=job;
+            if(temp.getItem("action")){
+                action.push(job);
+            }
+            else{
+                action[0]=job;  //首次进入杀人阶段
+            }
             temp.setItem("action",JSON.stringify(action));
             location.href="task4-1.html";
         }

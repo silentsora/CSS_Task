@@ -12,14 +12,14 @@
     <a href=""><img class="icon1" src="img-js-task2/menu.png"></a>
     <a href="task2-1.html"><img class="icon2" src="img-js-task2/close.png"></a>
 </div>
-<div class="content2">
+<div class="content2 content3">
     <img class="cry" src="img-js-task2/dead.png">
     <div id="result"></div>
-</div>
-<div class="footer">
-    <div id="step1" class="step2">亡灵发表遗言</div>
-    <div id="step2" class="step2">玩家依次发言讨论</div>
-    <button id="submit" onclick="vote()">去投票</button>
+    <div class="footer footer2">
+        <div id="step1" class="step2">亡灵发表遗言</div>
+        <div id="step2" class="step2">玩家依次发言讨论</div>
+        <button id="submit" onclick="vote()">去投票</button>
+    </div>
 </div>
 <script>
     var temp=localStorage;
@@ -38,7 +38,7 @@
     }
     console.log(temp.getItem("checked"));
     whoBeKill.push(parseInt(temp.getItem("checked")));  //将上次选择杀的对象添加到whoBeKill数组里
-    console.log(action,whoKill);
+    console.log(action,whoKill,whoBeKill);
     if(action[action.length-1]=="killer"){
         if(whoKill[whoKill.length-1]!="杀手杀"){       //防止刷新重复杀人
             whoKill.push("杀手杀");
@@ -51,9 +51,18 @@
         }
         document.getElementById("step1").style.display="none";      //将页面改变成投票的样式
         document.getElementById("step2").style.display="none";
-        document.getElementById("submit").innerHTML="第二天";
+        var day=2;
+        for(var j=0;j<action.length;j++){   //计算明天是第几天
+            if(action[j]=="nextDay"){
+                day++;
+            }
+        }
+        document.getElementById("submit").innerHTML="第 "+day+" 天";
     }
-    for(var i=0;i<action.length;i++){       //输出杀人报告
+    for(var i=0;i<whoKill.length;i++){       //输出杀人报告
+        if(whoKill[i]=="杀手杀"){
+            document.getElementById("result").innerHTML=""; //清除非当天的报告
+        }
         var decrypt=document.createElement("span");
         decrypt.innerHTML=whoBeKill[i]+1+"号被"+whoKill[i]+"死了,真实身份是"+job[whoBeKill[i]]+"<br>";
         document.getElementById("result").appendChild(decrypt);
@@ -61,15 +70,28 @@
     temp.setItem("whoKill",JSON.stringify(whoKill));        //存储杀人数据
     temp.setItem("whoBeKill",JSON.stringify(whoBeKill));
     function vote(){
-        if(action[action.length-1]=="people"){      //进入第二天
-            alert("第二天往后的部分尚未完成");
+        if(temp.getItem("winner")){
+            location.href="task4-4.html";
             return;
         }
-        console.log(action);
-        action.push("people");      //表明接下来是投票阶段,存储该参数
-        var actionJSON=JSON.stringify(action);
-        temp.setItem("action",actionJSON);
-        location.href="task4-1.html";
+        if(action[action.length-1]=="people"){      //进入下一天
+            console.log("下一天开始");
+            action.push("nextDay");      //表明接下来是下一天,存储该参数
+            var actionJSON = JSON.stringify(action);
+            temp.setItem("action", actionJSON);
+            location.href="task4-2.html";
+        }
+        else {
+            console.log(action);
+            action.push("people");      //表明接下来是投票阶段,存储该参数
+            var actionJSON = JSON.stringify(action);
+            temp.setItem("action", actionJSON);
+            location.href = "task4-1.html";
+        }
+    }
+    console.log(temp.getItem("winner"))
+    if(temp.getItem("winner")){
+        document.getElementById("submit").innerHTML="游戏结束，查看结果";
     }
 </script>
 </body>

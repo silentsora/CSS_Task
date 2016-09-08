@@ -17,8 +17,9 @@
     <button id="submit" onclick="start()">开始游戏</button>
 </div>
 <script>
-    temp=localStorage;
-    job=JSON.parse(temp.getItem("jobs"));
+    var winner; //存储胜者
+    var temp=localStorage;
+    var job=JSON.parse(temp.getItem("jobs"));
     console.log(job);
     for(var i=0;i<job.length;i++){
         var card=document.createElement("div");
@@ -55,9 +56,20 @@
     console.log(action,action.length,action[action.length-1]);
     function start(){
         if(action.length==0){       //未进入行动阶段=接下来开始游戏
+            var date=new Date();
+            var time=date.getTime();
+            localStorage.setItem("time",JSON.stringify(time));
             location.href="task4-2.html";
         }
         else{       //已经进入行动阶段=接下来显示杀人报告
+            if(winner=="people"){       //平民胜出
+                localStorage.setItem("winner",winner);
+                alert("平民胜利");
+            }
+            if(winner=="killer"){       //杀手胜出
+                localStorage.setItem("winner",winner);
+                alert("杀手胜利");
+            }
             location.href="task4-3.html";
         }
     }
@@ -95,6 +107,7 @@
         if(action.length==0){       //未开始游戏，不能选择杀人
             return;
         }
+        var beSelect;
         console.log("单选框状态：");
         for(var j=0;j<i;j++){       //点击一次遍历checked状态，当checked时改变卡片样式
             var checked=new Array();
@@ -107,6 +120,7 @@
                 else{
                     document.getElementById("card"+j).style.opacity="0.5";
                     temp.setItem("checked",j);
+                    beSelect=j;
                 }
             }
             else{
@@ -116,6 +130,33 @@
             }
             console.log(j,checked[j].checked);
         }
+        function victoryCheck(){        //胜败判定
+            var killer=0;   //杀手人数
+            var alive=0;    //存活人数
+            for(var i=0;i<job.length;i++){
+                console.log(document.getElementById("option"+i).disabled);
+                if(document.getElementById("option"+i).disabled==false){
+                    if(job[i]=="杀&emsp;手"){
+                        killer++;
+                    }
+                    alive++;
+                }
+            }
+            if(killer==1 && job[beSelect]=="杀&emsp;手"){
+                winner="people";
+                console.log("平民胜出");
+            }
+            else{
+                if(killer==alive-1 && job[beSelect]!="杀&emsp;手"){
+                    winner="killer";
+                    console.log("杀手胜出");
+                }
+                else{
+                    winner=null;
+                }
+            }
+        }
+        victoryCheck();
     }
 </script>
 </body>
