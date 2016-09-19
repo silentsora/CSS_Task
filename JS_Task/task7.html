@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<script src="AngularJS-1.5.8/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="distribute" ng-controller="inputCtrl">
+    <p>玩家人数 <input type="text" ng-model="number"> 人</p>
+    <button ng-click="minus()">减一</button>
+    <input type="range" min="6" max="20" ng-model="number">
+    <button ng-click="plus()">加一</button>
+    <br>
+    <br>
+    <button ng-click="distribute()">开始分配</button>
+    <ul>
+        <li ng-repeat="x in players">
+            {{x}}
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module("distribute",[]);
+    app.controller("inputCtrl",function($scope){
+        $scope.players=[];
+        $scope.number=13;
+        $scope.plus=function(){
+            $scope.number++;
+        };
+        $scope.minus=function(){
+            $scope.number--;
+        };
+        $scope.distribute=function(){
+            console.log($scope.number);
+            for(var i=0;i<$scope.number;i++){
+                $scope.players[i]="水民";
+                if(i==$scope.number-1){
+                    $scope.players[i]="杀手";
+                }
+            }
+            console.log($scope.players);
+        }
+    });
+</script>
+</body>
+</html>
