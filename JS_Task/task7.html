@@ -2,28 +2,48 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+    <link href="task7.css" type="text/css" rel="stylesheet">
 	<script src="AngularJS-1.5.8/angular.min.js"></script>
 </head>
 <body>
-<div ng-app="distribute" ng-controller="inputCtrl">
-    <p>玩家人数 <input type="text" ng-model="number"> 人</p>
-    <button ng-click="minus()">减一</button>
-    <input type="range" min="6" max="20" ng-model="number">
-    <button ng-click="plus()">加一</button>
-    <br>
-    <br>
-    <button ng-click="distribute()">开始分配</button>
-    <ul>
-        <li ng-repeat="x in players">
-            {{x}}
-        </li>
-    </ul>
+<div class="header">
+    <span>参数设置</span>
+    <a href=""><img class="icon1" src="img-js-task2/back.png"></a>
+    <a href=""><img class="icon2" src="img-js-task2/help.png"></a>
+</div>
+<div class="container" ng-app="distribute" ng-controller="inputCtrl">
+    <div class="main">
+        <div class="title">
+            <span>玩家配比</span>
+        </div>
+        <div id="content" >
+            <div ng-repeat="player in players">
+                <span>
+                    <div class="square square-{{player.color}}"></div>
+                    {{player.job}} 1 人
+                </span>
+            </div>
+        </div>
+        <input type="button" value="点击设置" ng-click="distribute()">
+    </div>
+    <div class="keyword">
+        <input type="text" placeholder="水民词组">
+        <input type="text" placeholder="杀手词组">
+    </div>
+    <form name="myForm">
+        <div class="players">
+            <p>玩家人数 <input type="text" id="number" name="number" ng-model="number" required> 人</p>
+            <img class="minus" src="img-js-task2/minus.png" ng-click="minus()">
+            <input type="range" min="6" max="18" ng-model="number">
+            <img class="plus" src="img-js-task2/plus.png" ng-click="plus()">
+        </div>
+        <button ng-click="next()" ng-disabled="myForm.number.$pristine">去发牌</button>
+    </form>
 </div>
 <script>
     var app = angular.module("distribute",[]);
     app.controller("inputCtrl",function($scope){
-        $scope.players=[];
-        $scope.number=13;
+        $scope.number=12;
         $scope.plus=function(){
             $scope.number++;
         };
@@ -32,13 +52,46 @@
         };
         $scope.distribute=function(){
             console.log($scope.number);
-            for(var i=0;i<$scope.number;i++){
-                $scope.players[i]="水民";
-                if(i==$scope.number-1){
-                    $scope.players[i]="杀手";
-                }
+            var str=$scope.number.toString();
+            if(!str.match(/^[6-9]$|^1[0-8]$/)){     //输入验证
+                alert("请输入6-18之间的整数");
+                return;
             }
-            console.log($scope.players);
+            $scope.players=[];
+            for(var i=0;i<$scope.number;i++){
+                $scope.players.push({job:"水民",color:'orange'});
+            }
+            switch (parseInt($scope.number)){
+                case 6:case 7:case 8:   //只有一个杀手
+                    $scope.players.splice(0,1,{job:"杀手",color:'orange'});
+                    break;
+                case 9:case 10:case 11:     //有两个杀手
+                    $scope.players.splice(0,2,{job:"杀手",color:'orange'},{job:"杀手",color:'orange'});
+                    break;
+                case 12:case 13:case 14:case 15:    //有三个杀手
+                    $scope.players.splice(0,3,{job:"杀手",color:'orange'},{job:"杀手",color:'orange'},{job:"杀手",color:'orange'});
+                    break;
+                case 16:case 17:case 18:    //有四个杀手
+                    $scope.players.splice(0,4,{job:"杀手",color:'orange'},{job:"杀手",color:'orange'},{job:"杀手",color:'orange'},{job:"杀手",color:'orange'});
+                    break;
+            }
+            function shuffle(array){    //数组乱序
+                var arrTemp=array.concat();
+                for(var i=arrTemp.length;i--;){
+                    var random=Math.floor(Math.random()*(i+1));
+                    var temp=arrTemp[i];
+                    arrTemp[i]=arrTemp[random];
+                    arrTemp[random]=temp;
+                }
+                return arrTemp;
+            }
+            $scope.players=shuffle($scope.players);
+            for(var i=0;i<$scope.number;i++){       //将偶数行的方块改为蓝色
+                if(i%4==2|i%4==3){
+                    $scope.players[i].color="blue";
+                }
+                console.log($scope.players[i]);
+            }
         }
     });
 </script>
