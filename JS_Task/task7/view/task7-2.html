@@ -1,0 +1,16 @@
+<head>
+    <link href="task7.css" rel="stylesheet" type="text/css">
+</head>
+<div class="header">
+    <span>查看身份</span>
+    <a href=""><img class="icon1" src="img-js-task2/back.png"></a>
+    <a href="#/card"><img class="icon2" src="img-js-task2/close.png"></a>
+</div>
+<div class="content2">
+    <div class="card">
+        <div id="circleNum" ng-model="nowNum">{{nowNum}}</div>
+        <img class="open" id="char" src="img-js-task2/open.png">
+        <p id="charType"></p>
+    </div>
+    <button id="submit" style="width: 84%;margin-left: 8%;" ng-click="openCard()">查看1号身份</button>
+</div>

@@ -1,0 +1,37 @@
+<head>
+    <link href="task7.css" type="text/css" rel="stylesheet">
+</head>
+<div class="header">
+    <span>参数设置</span>
+    <a href=""><img class="icon1" src="img-js-task2/back.png"></a>
+    <a href=""><img class="icon2" src="img-js-task2/help.png"></a>
+</div>
+<div class="container" ng-app="distribute" ng-controller="inputCtrl">
+    <div class="main">
+        <div class="title">
+            <span>玩家配比</span>
+        </div>
+        <div id="content" >
+            <div ng-repeat="player in players">
+                <span>
+                    <div class="square square-{{player.color}}"></div>
+                    {{player.job}} 1 人
+                </span>
+            </div>
+        </div>
+        <input type="button" value="点击设置" ng-click="distribute()">
+    </div>
+    <div class="keyword">
+        <input type="text" placeholder="水民词组">
+        <input type="text" placeholder="杀手词组">
+    </div>
+    <form name="myForm">
+        <div class="players">
+            <p>玩家人数 <input type="text" id="number" name="number" ng-model="number" required> 人</p>
+            <img class="minus" src="img-js-task2/minus.png" ng-click="minus()">
+            <input type="range" min="6" max="18" ng-model="number">
+            <img class="plus" src="img-js-task2/plus.png" ng-click="plus()">
+        </div>
+        <button ng-click="next()">去发牌</button>
+    </form>
+</div>

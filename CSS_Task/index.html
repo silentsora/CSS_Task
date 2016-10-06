@@ -4,37 +4,234 @@
     <meta charset="UTF-8">
     <title>CSS-tasks for 1935</title>
     <style type="text/css">
-         .link{
+        .circle{
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-top: 20px solid lightgray;
+            border-left: 20px solid lightgray;
+            border-radius: 100%;
+            opacity: 0.6;
+            animation: roll 5s linear 0.1s infinite both;
+            -webkit-animation: roll 15s linear 0.1s infinite both;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: -1;
+        }
+        p.circle-inner{
+            color: gray;
+            font-family: fantasy;
+            font-size: 36px;
+            position: fixed;
+            bottom: 65px;
+            right: 60px;
+            z-index: -1;
+        }
+        @keyframes roll{
+            0% {transform: rotate(0deg);}
+            50% {transform: rotate(180deg);}
+            100% {transform: rotate(360deg);}
+        }
+        @-webkit-keyframes roll{
+            0% {-webkit-transform: rotate(0deg);}
+            50% {-webkit-transform: rotate(180deg);}
+            100% {-webkit-transform: rotate(360deg);}
+        }
+        .link{
              display: inline-block;
              width: 100px;
              height: 50px;
-             background-color: orange;
-             border-radius: 5px;
+             border: 5px solid gray;
+             border-radius: 10px;
              box-shadow: 2px 2px 2px lightgray;
              padding: 0;
              margin: 10px;
              text-align: center;
+             position: relative;
+         }
+         .note{
+            width: 120px;
+            background: lightgray;
+            border-radius: 10px;
+            position: absolute;
+            left: 100px;
+            visibility: hidden;
+            z-index: 2;
+            color: black;
+            font-size: 16px;
+            font-family: 微软雅黑;
+         }
+         .link:hover .note{
+            visibility: visible;
          }
          a{
-             font-family: arial;
+             font-family: cursive;
              font-size: 16px;
              line-height: 50px;
              text-decoration: none;
          }
+         h1{
+            font-family: cursive;
+         }
+        .css{
+        }
+        .js{
+            height: 200px;
+        }
     </style>
 </head>
 <body>
-    <a href="task1.html"><div class="link">task1</div></a>
-    <a href="task3.html"><div class="link">task3</div></a>
-    <a href="task4.html"><div class="link">task4</div></a>
-    <a href="task5-1.html"><div class="link">task5-1</div></a>
-    <a href="task5-2.html"><div class="link">task5-2</div></a>
-    <a href="task6-1.html"><div class="link">task6-1</div></a>
-    <a href="task6-2.html"><div class="link">task6-2</div></a>
-    <a href="task6-3.html"><div class="link">task6-3</div></a>
-    <a href="task7-1.html"><div class="link">task7-1</div></a>
-    <a href="task7-2.html"><div class="link">task7-2</div></a>
-    <a href="task8.html"><div class="link">task8</div></a>
-    <a href="task9.html"><div class="link">task9</div></a>
+<h1>CSS</h1>
+<div class="css">
+    <a href="task1.html">
+        <div class="link">task1
+            <div class="note">
+                盒子模型<br>
+            </div>
+        </div>
+    </a>
+    <a href="task3.html">
+        <div class="link">task3
+            <div class="note">
+                CSS定位<br>
+                PS切图<br>
+                简单自适应
+            </div>
+        </div>
+    </a>
+    <a href="task4.html">
+        <div class="link">task4
+            <div class="note">
+                CSS定位<br>
+                简单自适应
+            </div>
+        </div>
+    </a>
+    <a href="task5-1.html">
+        <div class="link">task5-1
+            <div class="note">
+                简单CSS动画<br>
+                背景图片
+            </div>
+        </div>
+    </a>
+    <a href="task5-2.html">
+        <div class="link">task5-2
+        </div>
+    </a>
+    <a href="task6-1.html">
+        <div class="link">task6-1
+            <div class="note">
+                多媒体<br>
+                简单雪碧图
+            </div>
+        </div>
+    </a>
+    <a href="task6-2.html">
+        <div class="link">task6-2
+        </div>
+    </a>
+    <a href="task6-3.html">
+        <div class="link">task6-3
+        </div>
+    </a>
+    <a href="task7-1.html">
+        <div class="link">task7-1
+            <div class="note">
+                页面结构<br>
+                共用样式<br>
+                CSS3轮播图
+            </div>
+        </div>
+    </a>
+    <a href="task7-2.html">
+        <div class="link">task7-2
+        </div>
+    </a>
+    <a href="task8.html">
+        <div class="link">task8
+            <div class="note">
+                卡片式布局<br>
+                鼠标事件
+            </div>
+        </div>
+    </a>
+    <a href="task9.html">
+        <div class="link">task9
+            <div class="note">
+                表单<br>
+            </div>
+        </div>
+    </a>
+    <a href="task10.html">
+        <div class="link">task10-1
+            <div class="note">
+                bootstrap<br>
+                响应式布局
+            </div>
+        </div>
+    </a>
+    <a href="task10-2.html">
+        <div class="link">task10-2
+        </div>
+    </a>
+    <a href="task11.html">
+        <div class="link">task11
+            <div class="note">
+                bootstrap<br>
+                响应式布局
+            </div>
+        </div>
+    </a>
+    <a href="task12.html">
+        <div class="link">task12
+            <div class="note">
+                less编译<br>
+                响应式布局
+            </div>
+        </div>
+    </a>
+</div>
+<h1>JavaScript</h1>
+<div class="js">
+    <a href="JS/task1.html">
+        <div class="link">task1
+            <div class="note">
+                随机选取<br>
+                定时器<br>
+                console.log
+            </div>
+        </div>
+    </a>
+    <a href="JS/task2-1.html">
+        <div class="link">task2~4
+            <div class="note">
+                业务逻辑<br>
+                DOM操作
+            </div>
+        </div>
+    </a>
+    <a href="JS-task5.html">
+        <div class="link">task5
+            <div class="note">
+                接口文档<br>
+                AJAX<br>
+                跨域请求<br>
+                JSON
+            </div>
+        </div>
+    </a>
+    <a href="JS/task7.html">
+        <div class="link">task7
+            <div class="note">
+                AngularJS<br>
+                MVC模式
+            </div>
+        </div>
+    </a>
+</div>
+<div class="circle"></div>
+<p class="circle-inner">SilentSky</p>
 </body>
 </html>
