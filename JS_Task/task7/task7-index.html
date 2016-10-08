@@ -7,17 +7,12 @@
 </head>
 <body>
 <div ng-app="app">
-    <ul>
-        <li><a ui-sref='homepage'>首页</a></li>
-        <li><a ui-sref="distribute">角色分配</a></li>
-        <li><a ui-sref="card">查看身份</a></li>
-    </ul>
     <div ui-view=""></div>
 </div>
 <script>
     var app = angular.module("app",['ui.router']);
     app.config(function($stateProvider,$urlRouterProvider) {
-        $urlRouterProvider.otherwise('/homepage');
+        $urlRouterProvider.otherwise('/distribute');
         $stateProvider.state('homepage', {
             url: "/homepage",
             template: "homepage"
@@ -29,10 +24,32 @@
             url: "/card",
             templateUrl: 'view/task7-2.html',
             controller: 'cardCtrl'
+        }).state('list', {
+            url: "/list",
+            templateUrl: 'view/task7-3.html',
+            controller: 'listCtrl'
+        }).state('schedule', {
+            url: "/schedule",
+            templateUrl: 'view/task7-4.html',
+            controller: 'scheduleCtrl'
+        }).state('report', {
+            url: "/report",
+            templateUrl: 'view/task7-5.html',
+            controller: 'reportCtrl'
+        }).state('result', {
+            url: "/result",
+            templateUrl: 'view/task7-6.html',
+            controller: 'resultCtrl'
         })
     });
     app.service('data',function(){      //数据存储服务
-        var players=[];
+        var players;
+        var winner;
+        var action;
+        var whoKill;
+        var whoBeKill;
+        var beginTime;
+        var checked;
         this.setPlayers=function(data){
             console.log("存储角色分配",data);
             players=data;
@@ -40,7 +57,56 @@
         this.getPlayers=function(){
             console.log("提取角色分配");
             return players;
-        }
+        };
+        this.setWinner=function(data){
+            console.log("存储胜利者",data);
+            winner=data;
+        };
+        this.getWinner=function(){
+            console.log("提取胜利者");
+            return winner;
+        };
+        this.setAction=function(data){
+            console.log("存储行动阶段",data);
+            action=data;
+        };
+        this.getAction=function(){
+            console.log("提取行动阶段");
+            return action;
+        };
+        this.setWhoKill=function(data){
+            console.log("存储杀人者",data);
+            whoKill=data;
+        };
+        this.getWhoKill=function(){
+            console.log("提取杀人者");
+            return whoKill;
+        };
+        this.setWhoBeKill=function(data){
+            console.log("存储被杀者",data);
+            whoBeKill=data;
+        };
+        this.getWhoBeKill=function(){
+            console.log("提取被杀者");
+            return whoBeKill;
+        };
+        this.setBeginTime=function(data){
+            console.log("存储开始时间",data);
+            beginTime=data;
+        };
+        this.getBeginTime=function(){
+            console.log("提取开始时间");
+            return beginTime;
+        };
+        this.setChecked=function(data){
+            console.log("存储checked",data);
+            checked=data;
+        };
+        this.getChecked=function(){
+            console.log("提取checked");
+            return checked;
+        };
+
     })
 </script>
 <script src="controller/task7-controller.js" type="text/javascript"></script>
