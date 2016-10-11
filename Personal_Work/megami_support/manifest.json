@@ -1,0 +1,23 @@
+{
+	"manifest_version": 2,
+	"name": "megamiengage_support",
+	"version": "0.3",
+	"permissions": [
+		"http://megamiengage.com/*",
+		"http://*.moog.megamiengage.com/*",
+		"storage"
+	],
+	"content_scripts": [{
+		"js": ["jquery-3.1.0.min.js", "megami.js"],
+		"css": ["megami.css"],
+		"matches": ["http://*.megamiengage.com/*"],
+		"run_at": "document_end",
+		"all_frames": true
+	}],
+	"web_accessible_resources": [
+		"/images/*.png",
+		"/images/*.gif",
+		"/html/*.html",
+		"/*.html"
+	]
+}

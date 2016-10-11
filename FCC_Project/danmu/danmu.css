@@ -1,0 +1,38 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  width: 100%;
+  text-align: center;
+}
+.blank{
+  width: 80%;
+  margin: 50px 10%;
+  height: 400px;
+  border: 1px solid grey;
+  position: relative;
+  overflow: hidden;
+}
+.danmu{
+  font-size: 20px;
+  font-family: cursive;
+  position: absolute;
+  right: 100%;
+  animation: danmu 6s linear;
+  -webkit-animation: danmu 6s linear;
+}
+@keyframes danmu{
+  from {
+    transform: translateX(100%);
+    right: 0;
+  }
+  to {right: 100%;}
+}
+@-webkit-keyframes danmu{
+  from {
+    transform: translateX(100%);
+    right: 0;
+  }
+  to {right: 100%;}
+}
