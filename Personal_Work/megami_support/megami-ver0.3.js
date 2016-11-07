@@ -29,6 +29,7 @@ $(document).ready(function(){
 
     /*console.log($("input[name=village_id]").val());
     console.log($("input[name=ssid]").val());*/
+
     $(".bushoList input[type=radio]:first").attr("checked", "true");    //在选卡页面始终选择第一张卡
     $("input[name=btn_preview]").click();   //在选卡页面始终点击下一步
     $("#btn_send").click();     //在发卡页面始终点击发卡
@@ -45,13 +46,13 @@ $(document).ready(function(){
         var lvupBuild=document.createElement("button");
         lvupBuild.innerHTML="升级建筑";
         $("#maps").append(lvupBuild);
-/*
+
         var delayBuild=document.createElement("input");
         delayBuild.type="text";
         delayBuild.placeholder="刷新时间";
         delayBuild.style.cssText="width:53px;height:20px";
         $("#maps").append(delayBuild);
-*/
+
         var maxBuild=document.createElement("input");
         maxBuild.placeholder="最大等级";
         maxBuild.type="text";
@@ -88,7 +89,7 @@ $(document).ready(function(){
                 buildNumber++;
             });
             $(lvupBuild).click(function(){
-                /*if(delayBuild.value){
+                if(delayBuild.value){
                     var delay=delayBuild.value;
                     if(delay<3){
                         alert("请输入大于3秒的值")
@@ -98,7 +99,7 @@ $(document).ready(function(){
                 else{
                     alert("请输入刷新时间，单位为秒");
                     return;
-                }*/
+                }
                 if(maxBuild.value){
                     var maxLv=maxBuild.value;
                 }
@@ -106,121 +107,60 @@ $(document).ready(function(){
                     alert("请输入最大等级");
                     return;
                 }
-                console.log(maxLv);
-                var delay;
+                console.log(delay,maxLv);
                 var i=0;
                 var newWindow;
-                function newLvUp(){        //存在升级按钮而不存在使用CP升级按钮时才提交表单
-                    console.log("run lvup");
-
-                    /*var ttl=newWindow.document.getElementsByClassName("th_ttl")[0];
-                    console.log(ttl.innerHTML);
-                    var buildTime=newWindow.document.getElementsByClassName("contents")[2];
-                    console.log(buildTime.innerHTML);*/
-
-                    /*if(ttl.innerHTML.match(maxLv)){      //判断该点是否达到设定等级
-                        console.log(ttl[0].innerHTML,"达到设定等级");
-                        build.splice(i,1);
-                        console.log(build[i]);
-                        return;
-                    }*/
-
-                    //console.log(newWindow.document.getElementsByClassName("useCp"));
-                    /*if(newWindow.document.getElementsByClassName("useCp").length){
-                        console.log("存在CP升级按钮");
-                        return;
-                    }*/
-
-                    //console.log(newWindow.document.forms["facilityLvupForm"]);
-                    try{
-                        if(newWindow.document.forms[name="facilityLvupForm"]){
-                        newWindow.document.forms['facilityLvupForm'].submit();
-                        console.log("存在升级按钮");
-                        }
-                        else{
-                            setTimeout(newLvUp,2000);
-                            return;
-                        }
-                    }
-                    catch(error){
-                        console.log(error);
-                        setTimeout(newLvUp,2000);
-                        return;
-                    }
-                    i++;
-                        /*var sessionId;
-                        sessoinId=$("input[name=ssid]").val();
-                        var villageId;
-                        villageId=$("input[name=village_id]").val();
-                        console.log(sessionId,villageId);*/
-                        /*$.post(
-                            "/facility/build.php",
-                            {
-                                ssid        : sessionId,
-                                //id          : 215,
-                                x           : x,
-                                y           : y,
-                                village_id  : villageId
-                            },
-                        );*/
-                }
                 function lvup(){
-                    /*if(build.length==0){
+                    if(newWindow){
+                        newWindow.close();
+                    }
+                    if(build.length==0){
                             clearInterval(ini);
-                            newWindow.close();
                             alert("种地完成");
                             return;
-                        }*/
-                    if(i>=build.length){        //每轮种地完成时，检查条件并调整升级时间
+                        }
+                    if(i>=build.length){
                         i=0;
-                        newWindow.close();
-                        clearInterval(ini);
-                        newWindow=window.open(build[0]);
-                        newWindow.onload=function(){
-                            var ttl=newWindow.document.getElementsByClassName("th_ttl")[0].innerHTML;
-                            console.log(ttl);
-                            if(ttl.match(maxLv)){      //判断第一个点是否达到设定等级
-                                console.log("达到设定等级");
-                                newWindow.close();
-                                alert("种地完成");
-                                return;
-                            }
-                            var buildTime=newWindow.document.getElementsByClassName("contents")[2].innerHTML;
-                            console.log(buildTime);
-                            delay=(buildTime[3]+buildTime[4])*60+parseInt(buildTime[6]+buildTime[7]);
-                            console.log(delay);
-                            if(delay){
-                                ini=setInterval(lvup,(delay+4)*1000+Math.random()*2333);
-                            }
-                            else{
-                                alert("读取升级时间失败");
-                            }
-                        }
-                        return;
                     }
-                    if(!newWindow){     //首次运行，设置升级时间，并开始循环
-                        newWindow=window.open(build[i]);
-                        newWindow.onload=function(){
-                            var buildTime=newWindow.document.getElementsByClassName("contents")[2].innerHTML;
-                            console.log(buildTime);
-                            delay=(buildTime[3]+buildTime[4])*60+parseInt(buildTime[6]+buildTime[7]);
-                            console.log(delay);
-                            newLvUp();
-                            if(delay){
-                                ini=setInterval(lvup,(delay+4)*1000+Math.random()*2333);
-                            }
-                            else{
-                                alert("读取升级时间失败");
-                            }
+                    newWindow=window.open(build[i]);
+                    newWindow.onload=function(){        //存在升级按钮而不存在使用CP升级按钮时才提交表单
+                        var ttl=newWindow.document.getElementsByClassName("th_ttl");
+                        if(ttl[0].innerHTML.match(maxLv)){      //判断该点是否达到设定等级
+                            console.log(ttl[0].innerHTML,"达到设定等级");
+                            build.splice(i,1);
+                            console.log(build[i]);
+                            return;
                         }
-                    }
-                    else{
-                        newWindow.location.href=build[i];
-                        $(newWindow.document).ready(newLvUp);
+                        //console.log(newWindow.document.getElementsByClassName("useCp"));
+                        if(newWindow.document.getElementsByClassName("useCp").length){
+                            console.log("存在CP升级按钮");
+                            return;
+                        }
+                        //console.log(newWindow.document.forms["facilityLvupForm"]);
+                        if(newWindow.document.forms[name="facilityLvupForm"]){
+                            newWindow.document.forms['facilityLvupForm'].submit();
+                            console.log("存在升级按钮");
+
+                            /*var sessionId;
+                            sessoinId=$("input[name=ssid]").val();
+                            var villageId;
+                            villageId=$("input[name=village_id]").val();
+                            console.log(sessionId,villageId);*/
+                            /*$.post(
+                                "/facility/build.php",
+                                {
+                                    ssid        : sessionId,
+                                    //id          : 215,
+                                    x           : x,
+                                    y           : y,
+                                    village_id  : villageId
+                                },
+                            );*/
+                        }
+                        i++;
                     }
                 }
-                //var ini=setInterval(lvup,delay*1000+Math.random()*2333);
-                lvup(); //运行升级函数
+                var ini=setInterval(lvup,delay*1000+Math.random()*2333);
             })
         })
     }

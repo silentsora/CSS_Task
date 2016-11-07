@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>JS-task5</title>
+    <style>
+        form{
+            border: 1px solid grey;
+            padding: 20px;
+        }
+        table,th,tr,td{
+            border: 1px solid grey;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,td{
+            text-align: center;
+        }
+    </style>
+    <script src="jquery/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="task5.js" type="text/javascript"></script>
+</head>
+<body>    
+<h1>学员报名</h1>
+<form>
+    <p>姓名：&emsp;&emsp;<input type="text" name="name"></p>
+    <p>QQ：&emsp;&emsp;&emsp;<input type="text" name="qq"></p>
+    <p>修真类型：
+        <input type="radio" name="type" id="css" value="1">
+        <label for="css">css</label>
+        <input type="radio" name="type" id="js" value="2">
+        <label for="js">js</label>
+        <input type="radio" name="type" id="java" value="3">
+        <label for="java">java</label>
+        <input type="radio" name="type" id="op" value="4">
+        <label for="op">运维</label>
+        <input type="radio" name="type" id="dba" value="5">
+        <label for="dba">DBA</label>
+        <input type="radio" name="type" id="pm" value="6">
+        <label for="pm">产品</label>
+        <input type="radio" name="type" id="ios" value="7">
+        <label for="ios">IOS</label>
+        <input type="radio" name="type" id="android" value="8">
+        <label for="android">安卓</label>
+    </p>
+    <p>毕业院校：<input type="text" name="school"></p>
+    <p>修真资质：
+        <input type="radio" name="talent" id="excellent" value="1">
+        <label for="excellent">学霸</label>
+        <input type="radio" name="talent" id="shit" value="2">
+        <label for="shit">学渣</label>
+    </p>
+    <p>修真等级：
+        <input type="radio" name="level" id="level0" value="1">
+        <label for="level0">0基础</label>
+        <input type="radio" name="level" id="level1" value="2">
+        <label for="level1">3个月以内</label>
+        <input type="radio" name="level" id="level2" value="3">
+        <label for="level2">6个月以内</label>
+        <input type="radio" name="level" id="level3" value="4">
+        <label for="level3">1年以内</label>
+        <input type="radio" name="level" id="level4" value="5">
+        <label for="level4">3年以内</label>
+        <input type="radio" name="level" id="level5" value="6">
+        <label for="level5">3年以上</label>
+    </p>
+    <p>入学时间：<input type="text" name="joinTime"></p>
+    <p>修行立愿：<input type="text" name="wish"></p>
+    <input type="button" id="submit" value="提交">
+</form><br><br><br>
+<input type="button" id="get" value="查询报名名单">
+<br><br>
+<table id="dataList">
+    <tr>
+        <th>姓名</th>
+        <th>QQ</th>
+        <th>类型</th>
+        <th>毕业院校</th>
+        <th>修真资历</th>
+        <th>修真等级</th>
+        <th>入学时间</th>
+    </tr>
+</table>
+</body>
+</html>
