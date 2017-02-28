@@ -86,6 +86,26 @@ $(document).ready(function(){
         });
     });
     $("#submit").click(function(){
+        var name = $("input[name=name]").val();
+        var regName = /^[\u4e00-\u9fa5]{1,}$/;
+        var qq = $("input[name=qq]").val();
+        var regQQ = /^\d{5,}$/
+        var joinTime = $("input[name=joinTime]").val();
+        var regJoinTime = /^\d{8}$/;
+
+        if(!regName.test(name)){
+            alert("名字格式错误");
+            return;
+        }
+        if(!regQQ.test(qq)){
+            alert("QQ格式错误");
+            return;
+        }
+        if(!regJoinTime.test(joinTime)){
+            alert("入学时间格式错误");
+            return;
+        }
+
         $.ajax({
             url: "/a/student",
             type: "POST",
@@ -104,6 +124,9 @@ $(document).ready(function(){
                 console.log(data);
                 if(data.code === 200){
                     alert("报名成功");
+                }
+                else{
+                    alert(data.message);
                 }
             },
             error: function (data) {
